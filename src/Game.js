@@ -1,6 +1,6 @@
 /** @import { Game, Move } from "boardgame.io" */
 import { TurnOrder } from "boardgame.io/core"
-import { INVALID_MOVE } from 'boardgame.io/core';
+import { INVALID_MOVE } from "boardgame.io/core"
 /** @type {Game} */
 export const Game = {
   setup: ({ random, ctx }) => {
@@ -24,11 +24,12 @@ export const Game = {
       for (let i = 0; i < 6; i++) {
         grundstücke.push(deck.shift())
       }
-    spieler.push({
-        geld : 5 + i,
-        bevölkerung : 0,
-        grundstücke: grundstücke
-      });
+      spieler.push({
+        geld: 5 + i,
+        bevölkerung: 0,
+        grundstücke: grundstücke,
+        gebäude: [],
+      })
     }
     console.log(spieler)
 
@@ -44,8 +45,8 @@ export const Game = {
         [null, null, null, null, null, null, null, null],
       ],
       deck: deck,
-      spieler : spieler,
-      marktplatz: marktplatz
+      spieler: spieler,
+      marktplatz: marktplatz,
     }
   },
 
@@ -59,18 +60,24 @@ export const Game = {
     grundstückKaufen: function grundstückKaufen(move, grundstückPos) {
       let preisliste = [2, 3, 4, 6, 8, 10]
       let preis = preisliste[grundstückPos]
-      console.log("preis: " +preis)
+      console.log("preis: " + preis)
       if (move.G.spieler[move.playerID].geld >= preis) {
-        move.G.spieler[move.playerID].grundstücke.push(move.G.marktplatz[grundstückPos])
+        move.G.spieler[move.playerID].grundstücke.push(
+          move.G.marktplatz[grundstückPos],
+        )
         move.G.spieler[move.playerID].geld -= preis
         move.G.marktplatz.splice(grundstückPos, 1)
         move.G.marktplatz.push(move.G.deck.shift())
-      }else {
+      } else {
         return INVALID_MOVE
       }
+    },
+    gebäudeBauen: function gebäudeBauen(move, feld) {
+      console.log(move.G.spieler[move.playerID].grundstücke.includes(feld))
+      //if (move.G.spieler[move.playerID].grundstücke.includes(feld)) {
 
-
-    }
+      //}
+    },
   },
 
   //seed: "random-see1d",
