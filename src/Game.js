@@ -1,6 +1,6 @@
 /** @import { Game, Move } from "boardgame.io" */
 import { TurnOrder } from "boardgame.io/core"
-
+import { INVALID_MOVE } from 'boardgame.io/core';
 /** @type {Game} */
 export const Game = {
   setup: ({ random, ctx }) => {
@@ -63,10 +63,13 @@ export const Game = {
       if (move.G.spieler[move.playerID].geld >= preis) {
         move.G.spieler[move.playerID].grundstücke.push(move.G.marktplatz[grundstückPos])
         move.G.spieler[move.playerID].geld -= preis
-        
+        move.G.marktplatz.splice(grundstückPos, 1)
+        move.G.marktplatz.push(move.G.deck.shift())
+      }else {
+        return INVALID_MOVE
       }
 
-      //grundstück von dem marktplatz löschen
+
     }
   },
 

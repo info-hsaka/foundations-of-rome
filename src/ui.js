@@ -5,5 +5,4 @@ export function draw(state) {
   // draw here
 }
 
-array = [1,2,3,4]
-array.splice()
+
