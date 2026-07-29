@@ -56,14 +56,16 @@ export const Game = {
     geldNehmen: function geldNehmen(move) {
       move.G.spieler[move.playerID].geld += 5 //+ Geld Gebäude
     },
-    grundstückKaufen: function grundstückKaufen(move, grundstück) {
-      //den karten auf dem marktplatz preise zuordnen
+    grundstückKaufen: function grundstückKaufen(move, grundstückPos) {
       let preisliste = [2, 3, 4, 6, 8, 10]
-      
-      if (condition) {//überprüfen ob genug geld da ist
-
+      let preis = preisliste[grundstückPos]
+      console.log("preis: " +preis)
+      if (move.G.spieler[move.playerID].geld >= preis) {
+        move.G.spieler[move.playerID].grundstücke.push(move.G.marktplatz[grundstückPos])
+        move.G.spieler[move.playerID].geld -= preis
+        
       }
-      move.G.spieler[move.playerID].grundstücke.push(grundstück)
+
       //grundstück von dem marktplatz löschen
     }
   },
