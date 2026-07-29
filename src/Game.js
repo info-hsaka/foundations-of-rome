@@ -61,10 +61,14 @@ export const Game = {
       let preisliste = [2, 3, 4, 6, 8, 10]
       let preis = preisliste[grundstückPos]
       console.log("preis: " + preis)
+
       if (move.G.spieler[move.playerID].geld >= preis) {
         move.G.spieler[move.playerID].grundstücke.push(
           move.G.marktplatz[grundstückPos],
-        )
+        ) // eslint-disable-line
+        move.G.spielfeld[move.G.marktplatz[grundstückPos][0]][
+          move.G.marktplatz[grundstückPos][1]
+        ] = move.playerID
         move.G.spieler[move.playerID].geld -= preis
         move.G.marktplatz.splice(grundstückPos, 1)
         move.G.marktplatz.push(move.G.deck.shift())
@@ -73,10 +77,17 @@ export const Game = {
       }
     },
     gebäudeBauen: function gebäudeBauen(move, feld) {
-      console.log(move.G.spieler[move.playerID].grundstücke.includes(feld))
-      //if (move.G.spieler[move.playerID].grundstücke.includes(feld)) {
+      let hatGrundstück = false
+      for (const grundstück of move.G.spieler[move.playerID].grundstücke) {
+        if (grundstück[0] == feld[0] && grundstück[1] == feld[1]) {
+          hatGrundstück = true
+        }
+      }
+      console.log(hatGrundstück)
 
-      //}
+      if (hatGrundstück) {
+        move.G.spieler[move.playerID].gebäude.push(feld)
+      }
     },
   },
 
