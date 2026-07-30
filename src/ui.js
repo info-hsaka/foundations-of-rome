@@ -29,14 +29,15 @@ export function draw(
           ctx.strokeRect(x, y, feldGröße, feldGröße)
         }
       }
+      let i = 0
       for (const karte of state.G.marktplatz) {
         if (spalte == karte[0] && zeile == karte[1]) {
           onClick(x, y, feldGröße, feldGröße, () => {
             console.log("angeklickt")
-            moves.grundstückKaufen
+            moves.grundstückKaufen(i)
           })
         }
-
+        i++
         // moves.geldNehmen() // nachdem Felder markiert wurden, Sachen vom Marktplatz kaufen
       }
     }
