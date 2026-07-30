@@ -20,7 +20,6 @@ export function draw(
       for (const karte of state.G.marktplatz) {
         if (spalte == karte[0] && zeile == karte[1]) {
           ctx.strokeStyle = "orange"
-          console.log("BurgerPommes auf die 1")
           ctx.lineWidth = "6"
           ctx.strokeRect(x + 4, y + 4, feldGröße - 8, feldGröße - 8)
         } else {
@@ -29,15 +28,14 @@ export function draw(
           ctx.strokeRect(x, y, feldGröße, feldGröße)
         }
       }
-      let i = 0
+
       for (const karte of state.G.marktplatz) {
         if (spalte == karte[0] && zeile == karte[1]) {
           onClick(x, y, feldGröße, feldGröße, () => {
             console.log("angeklickt")
-            moves.grundstückKaufen(i)
+            moves.grundstückKaufen()
           })
         }
-        i++
         // moves.geldNehmen() // nachdem Felder markiert wurden, Sachen vom Marktplatz kaufen
       }
     }
