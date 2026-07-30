@@ -1,5 +1,5 @@
-import { ClientState } from "boardgame.io/src/client/client"
-import { Game } from "./Game"
+/** @import { ClientState } from "boardgame.io/src/client/client" */
+/** @import { Game } from "./Game" */
 
 import { onClick } from "./canvas"
 
@@ -20,7 +20,7 @@ export function draw(
       ctx.strokeRect(x, y, feldGröße, feldGröße)
       onClick(x, y, feldGröße, feldGröße, () => {
         console.log("angeklickt")
-        state.G.moves.geldNehmen()
+        moves.geldNehmen()
       })
     }
   }
