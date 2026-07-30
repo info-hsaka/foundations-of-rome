@@ -47,11 +47,8 @@ export function draw(
           ) {
             onClick(x, y, feldGröße, feldGröße, () => {
               console.log("angeklickt")
-              let valide = moves.grundstückKaufen(i)
-              console.log(valide)
-              if (valide != INVALID_MOVE) {
-                ctx.clearRect(x + 1, y + 1, feldGröße - 2, feldGröße - 2)
-              }
+              moves.grundstückKaufen(i)
+              ctx.clearRect(x + 1, y + 1, feldGröße - 2, feldGröße - 2)
             })
           }
         }
