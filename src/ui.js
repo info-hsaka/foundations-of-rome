@@ -1,5 +1,7 @@
-/** @import { ClientState } from "boardgame.io/src/client/client" */
-/** @import { Game } from "./Game" */
+import { ClientState } from "boardgame.io/src/client/client"
+import { Game } from "./Game"
+
+import { onClick } from "./canvas"
 
 export function draw(
   /** @type {ClientState<[ReturnType<Game["setup"]>]>} */
@@ -16,10 +18,10 @@ export function draw(
       let x = spalte * feldGröße
       let y = zeile * feldGröße
       ctx.strokeRect(x, y, feldGröße, feldGröße)
-      /*onClick(x, y, feldGröße, feldGröße, () => {
+      onClick(x, y, feldGröße, feldGröße, () => {
         console.log("angeklickt")
         state.G.moves.geldNehmen()
-      })*/
+      })
     }
   }
   // draw here
