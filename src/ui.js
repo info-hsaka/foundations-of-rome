@@ -21,19 +21,23 @@ export function draw(
         if (spalte == karte[0] && zeile == karte[1]) {
           ctx.strokeStyle = "orange"
           console.log("BurgerPommes auf die 1")
-          ctx.lineWidth = "5"
-          ctx.strokeRect(x + 5, y + 5, feldGröße - 10, feldGröße - 10)
+          ctx.lineWidth = "6"
+          ctx.strokeRect(x + 4, y + 4, feldGröße - 8, feldGröße - 8)
         } else {
           ctx.lineWidth = "1"
           ctx.strokeStyle = "black"
           ctx.strokeRect(x, y, feldGröße, feldGröße)
         }
       }
+			for (const karte of state.G.marktplatz) {
+        if (spalte == karte[0] && zeile == karte[1]){
+					onClick(x, y, feldGröße, feldGröße, () => {
+        	console.log("angeklickt"))
 
-      onClick(x, y, feldGröße, feldGröße, () => {
-        console.log("angeklickt")
+				}
+
         // moves.geldNehmen() // nachdem Felder markiert wurden, Sachen vom Marktplatz kaufen
-      })
+
     }
   }
   // draw here
