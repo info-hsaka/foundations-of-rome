@@ -36,6 +36,7 @@ export function draw(
             onClick(x, y, feldGröße, feldGröße, () => {
               console.log("angeklickt")
               moves.grundstückKaufen(i)
+              ctx.clearRect(x + 1, y + 1, feldGröße - 2, feldGröße - 2)
             })
           }
           // moves.geldNehmen() // nachdem Felder markiert wurden, Sachen vom Marktplatz kaufen
