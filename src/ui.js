@@ -17,22 +17,22 @@ export function draw(
     for (let spalte = 0; spalte < 8; spalte++) {
       let x = spalte * feldGröße
       let y = zeile * feldGröße
+      ctx.fillStyle = "grey"
+      ctx.font = "20px Arial"
+      ctx.textAlign = "center"
+      ctx.textBaseline = "middle"
+      let buchstabe = ["A", "B", "C", "D", "E", "F", "G", "H"]
+      let text = buchstabe[zeile] + (spalte + 1)
+      ctx.fillText(text, x + 25, y + 25)
       for (const karte of state.G.marktplatz) {
-        ctx.fillStyle = "grey"
-        ctx.font = "20px Arial"
-        ctx.textAlign = "center"
-        ctx.textBaseline = "middle"
-        let buchstabe = ["A", "B", "C", "D", "E", "F", "G", "H"]
-        let text = buchstabe[zeile] + (spalte + 1)
-        ctx.fillText(text, x + 25, y + 25)
-
-        let xpos = 35 + i * 66
-        i++
-        ctx.fillText(text, xpos, 425)
         if (spalte == karte[0] && zeile == karte[1]) {
           ctx.strokeStyle = "orange"
           ctx.lineWidth = "6"
           ctx.strokeRect(x + 4, y + 4, feldGröße - 8, feldGröße - 8)
+
+          let xpos = 35 + i * 66
+          i++
+          ctx.fillText(text, xpos, 475)
         } else {
           ctx.lineWidth = "1"
           ctx.strokeStyle = "black"
