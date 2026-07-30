@@ -27,13 +27,12 @@ export function draw(
           ctx.strokeStyle = "black"
           ctx.strokeRect(x, y, feldGröße, feldGröße)
         }
-      }
 
-      for (const karte of state.G.marktplatz) {
-        if (spalte == karte[0] && zeile == karte[1]) {
+      for (let i = 0; i < 6; i++) {
+        if (spalte == state.G.marktplatz[i][0] && zeile == state.G.marktplatz[i][1]) {
           onClick(x, y, feldGröße, feldGröße, () => {
             console.log("angeklickt")
-            moves.grundstückKaufen()
+            moves.grundstückKaufen(i)
           })
         }
         // moves.geldNehmen() // nachdem Felder markiert wurden, Sachen vom Marktplatz kaufen
