@@ -12,7 +12,7 @@ export function draw(
   const canvas = document.getElementById("canvas")
   const ctx = canvas.getContext("2d")
   let feldGröße = 50
-
+  let i = 0
   for (let zeile = 0; zeile < 8; zeile++) {
     for (let spalte = 0; spalte < 8; spalte++) {
       let x = spalte * feldGröße
@@ -25,6 +25,10 @@ export function draw(
         let buchstabe = ["A", "B", "C", "D", "E", "F", "G", "H"]
         let text = buchstabe[zeile] + (spalte + 1)
         ctx.fillText(text, x + 25, y + 25)
+
+        let xpos = 35 + i * 66
+        i++
+        ctx.fillText(text, xpos, 425)
         if (spalte == karte[0] && zeile == karte[1]) {
           ctx.strokeStyle = "orange"
           ctx.lineWidth = "6"
