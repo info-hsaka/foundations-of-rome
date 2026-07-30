@@ -18,11 +18,13 @@ export function draw(
       let x = spalte * feldGröße
       let y = zeile * feldGröße
       for (const karte of state.G.marktplatz) {
-        if (x == karte[0] && y == karte[1]) {
+        if (spalte == karte[0] && zeile == karte[1]) {
           ctx.strokeStyle = "orange"
           console.log("BurgerPommes auf die 1")
-          ctx.strokeRect(x - 5, y - 5, feldGröße - 10, feldGröße - 10)
+          ctx.lineWidth = "5"
+          ctx.strokeRect(x + 5, y + 5, feldGröße - 10, feldGröße - 10)
         } else {
+          ctx.lineWidth = "1"
           ctx.strokeStyle = "black"
           ctx.strokeRect(x, y, feldGröße, feldGröße)
         }
