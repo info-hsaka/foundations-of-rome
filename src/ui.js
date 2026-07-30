@@ -18,12 +18,12 @@ export function draw(
       let x = spalte * feldGröße
       let y = zeile * feldGröße
       for (const karte of state.G.marktplatz) {
-        ctx.fillStyle = "black"
-        ctx.font = "10px Arial"
+        ctx.fillStyle = "grey"
+        ctx.font = "20px Arial"
         ctx.textAlign = "center"
         ctx.textBaseline = "middle"
         let buchstabe = ["A", "B", "C", "D", "E", "F", "G", "H"]
-        let text = buchstabe[y] + x
+        let text = buchstabe[zeile] + (spalte + 1)
         ctx.fillText(text, x + 25, y + 25)
         if (spalte == karte[0] && zeile == karte[1]) {
           ctx.strokeStyle = "orange"
@@ -46,7 +46,6 @@ export function draw(
               ctx.clearRect(x + 1, y + 1, feldGröße - 2, feldGröße - 2)
             })
           }
-          // moves.geldNehmen() // nachdem Felder markiert wurden, Sachen vom Marktplatz kaufen
         }
       }
     }
