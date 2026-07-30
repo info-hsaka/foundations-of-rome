@@ -1,6 +1,7 @@
 /** @import { ClientState } from "boardgame.io/src/client/client" */
 /** @import { Game } from "./Game" */
 
+import { INVALID_MOVE } from "boardgame.io/src/core/constants"
 import { onClick } from "./canvas"
 
 export function draw(
@@ -46,8 +47,11 @@ export function draw(
           ) {
             onClick(x, y, feldGröße, feldGröße, () => {
               console.log("angeklickt")
-              moves.grundstückKaufen(i)
-              ctx.clearRect(x + 1, y + 1, feldGröße - 2, feldGröße - 2)
+              let valide = moves.grundstückKaufen(i)
+              console.log(valide)
+              if (valide != INVALID_MOVE) {
+                ctx.clearRect(x + 1, y + 1, feldGröße - 2, feldGröße - 2)
+              }
             })
           }
         }
