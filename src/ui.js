@@ -20,9 +20,11 @@ export function draw(
       ctx.strokeRect(x, y, feldGröße, feldGröße)
       onClick(x, y, feldGröße, feldGröße, () => {
         console.log("angeklickt")
-        moves.geldNehmen()
+        // moves.geldNehmen() // nachdem Felder markiert wurden, Sachen vom Marktplatz kaufen
       })
     }
   }
   // draw here
+  ctx.fillRect(425, 0, 200, 75)
+  ctx.fillText("Geld nehmen")
 }
