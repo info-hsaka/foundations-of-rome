@@ -39,18 +39,17 @@ export function draw(
           ctx.strokeStyle = "black"
           ctx.strokeRect(x, y, feldGröße, feldGröße)
         }
-
-        for (let i = 0; i < 6; i++) {
-          if (
-            spalte == state.G.marktplatz[i][0] &&
-            zeile == state.G.marktplatz[i][1]
-          ) {
-            onClick(x, y, feldGröße, feldGröße, () => {
-              console.log("angeklickt")
-              moves.grundstückKaufen(i)
-              ctx.clearRect(x + 1, y + 1, feldGröße - 2, feldGröße - 2)
-            })
-          }
+      }
+      for (let i = 0; i < 6; i++) {
+        if (
+          spalte == state.G.marktplatz[i][0] &&
+          zeile == state.G.marktplatz[i][1]
+        ) {
+          onClick(x, y, feldGröße, feldGröße, () => {
+            console.log("angeklickt")
+            moves.grundstückKaufen(i)
+            ctx.clearRect(x + 1, y + 1, feldGröße - 2, feldGröße - 2)
+          })
         }
       }
     }
