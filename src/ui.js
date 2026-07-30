@@ -25,10 +25,14 @@ export function draw(
     }
   }
   // draw here
+  ctx.fillStyle = "black"
   ctx.fillRect(425, 0, 200, 75)
   ctx.fillStyle = "white"
   ctx.font = "20px Arial"
   ctx.textAlign = "center"
   ctx.textBaseline = "middle"
   ctx.fillText("Geld nehmen", 525, 38)
+  onClick(425, 0, 200, 75, () => {
+    moves.geldNehmen()
+  })
 }
