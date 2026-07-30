@@ -26,5 +26,9 @@ export function draw(
   }
   // draw here
   ctx.fillRect(425, 0, 200, 75)
-  ctx.fillText("Geld nehmen")
+  ctx.fillStyle = "white"
+  ctx.font = "20px Arial"
+  ctx.textAlign = "center"
+  ctx.textBaseline = "middle"
+  ctx.fillText("Geld nehmen", 525, 38)
 }
