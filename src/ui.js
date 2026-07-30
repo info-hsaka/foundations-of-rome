@@ -17,6 +17,15 @@ export function draw(
     for (let spalte = 0; spalte < 8; spalte++) {
       let x = spalte * feldGröße
       let y = zeile * feldGröße
+      console.log(state.G.marktplatz)
+      for (const karte of state.G.marktplatz) {
+        if (x == karte[0] && y == karte[1]) {
+          ctx.strokeStyle = "orangered"
+        } else {
+          ctx.strokeStyle = "black"
+        }
+      }
+
       ctx.strokeRect(x, y, feldGröße, feldGröße)
       onClick(x, y, feldGröße, feldGröße, () => {
         console.log("angeklickt")
