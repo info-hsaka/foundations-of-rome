@@ -66,5 +66,10 @@ export function draw(
   ctx.font = "20px Arial"
   ctx.textAlign = "center"
   ctx.textBaseline = "middle"
-  ctx.fillText("2€", 66, 425)
+  ctx.fillText("2€", 35, 425)
+  ctx.fillText("3€", 101, 425)
+  ctx.fillText("4€", 167, 425)
+  ctx.fillText("6€", 233, 425)
+  ctx.fillText("8€", 299, 425)
+  ctx.fillText("10€", 365, 425)
 }
