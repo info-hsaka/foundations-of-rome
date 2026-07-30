@@ -18,6 +18,13 @@ export function draw(
       let x = spalte * feldGröße
       let y = zeile * feldGröße
       for (const karte of state.G.marktplatz) {
+        ctx.fillStyle = "black"
+        ctx.font = "10px Arial"
+        ctx.textAlign = "center"
+        ctx.textBaseline = "middle"
+        let buchstabe = ["A", "B", "C", "D", "E", "F", "G", "H"]
+        let text = buchstabe[y] + x
+        ctx.fillText(text, x + 25, y + 25)
         if (spalte == karte[0] && zeile == karte[1]) {
           ctx.strokeStyle = "orange"
           ctx.lineWidth = "6"
