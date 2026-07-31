@@ -73,6 +73,7 @@ export function draw(
             }
             ctx.fillStyle = "white"
             ctx.fillRect(15, 465, 370, 70)
+            draw(state)
           })
         }
       }
