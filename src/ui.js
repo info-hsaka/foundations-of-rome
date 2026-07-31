@@ -64,7 +64,8 @@ export function draw(
   const canvas = document.getElementById("canvas")
   const ctx = canvas.getContext("2d")
   let feldGröße = 50
-
+  ctx.fillStyle = "white"
+  ctx.clearRect(15, 465, 370, 70)
   marktplatzMalen(state)
 
   for (let zeile = 0; zeile < 8; zeile++) {
@@ -103,10 +104,9 @@ export function draw(
           onClick(x, y, feldGröße, feldGröße, () => {
             moves.grundstückKaufen(i)
             felderMalen(state)
-            ctx.fillStyle = "white"
-            ctx.clearRect(15, 465, 370, 70)
+
             console.log("angeklickt")
-            marktplatzMalen(state)
+            //marktplatzMalen(state)
           })
         }
       }
