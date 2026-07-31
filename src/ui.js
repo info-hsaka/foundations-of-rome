@@ -38,27 +38,20 @@ function felderMalen(state) {
 //Einträge Marktplatz Funktion
 
 function marktplatzMalen(state) {
-  for (let zeile = 0; zeile < 8; zeile++) {
-    for (let spalte = 0; spalte < 8; spalte++) {
-      ctx.fillStyle = "grey"
-      ctx.font = "20px Arial"
-      ctx.textAlign = "center"
-      ctx.textBaseline = "middle"
+  ctx.fillStyle = "grey"
+  ctx.font = "20px Arial"
+  ctx.textAlign = "center"
+  ctx.textBaseline = "middle"
 
-      let buchstabe = ["A", "B", "C", "D", "E", "F", "G", "H"]
-      let text = buchstabe[spalte] + (zeile + 1)
-      console.log(state.G.marktplatz, text)
-      for (let i = 0; i < 6; i++) {
-        if (
-          spalte == state.G.marktplatz[i][0] &&
-          zeile == state.G.marktplatz[i][1]
-        ) {
-          let xpos = 35 + i * 66
-          ctx.fillText(text, xpos, 475)
-          console.log(text)
-        }
-      }
-    }
+  let buchstabe = ["A", "B", "C", "D", "E", "F", "G", "H"]
+
+  console.log(state.G.marktplatz)
+  for (let i = 0; i < 6; i++) {
+    let text =
+      buchstabe[state.G.marktplatz[i][0]] + (state.G.marktplatz[i][1] + 1)
+    let xpos = 35 + i * 66
+    ctx.fillText(text, xpos, 475)
+    console.log(text)
   }
 }
 

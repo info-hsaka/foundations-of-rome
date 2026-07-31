@@ -71,6 +71,7 @@ export const Game = {
           move.G.marktplatz[grundstückPos][1]
         ] = move.playerID
         move.G.spieler[move.playerID].geld -= preis
+
         move.G.marktplatz.splice(grundstückPos, 1)
         move.G.marktplatz.push(move.G.deck.shift())
       } else {
