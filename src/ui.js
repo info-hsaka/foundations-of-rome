@@ -44,9 +44,10 @@ function marktplatzMalen(state) {
       ctx.font = "20px Arial"
       ctx.textAlign = "center"
       ctx.textBaseline = "middle"
+
       let buchstabe = ["A", "B", "C", "D", "E", "F", "G", "H"]
       let text = buchstabe[spalte] + (zeile + 1)
-      console.log(67)
+      console.log(state.G.marktplatz, text)
       for (let i = 0; i < 6; i++) {
         if (
           spalte == state.G.marktplatz[i][0] &&
@@ -110,9 +111,9 @@ export function draw(
             moves.grundstückKaufen(i)
             felderMalen(state)
             ctx.fillStyle = "white"
-            //ctx.fillRect(15, 465, 370, 70)
+            ctx.clearRect(15, 465, 370, 70)
             console.log("angeklickt")
-            //marktplatzMalen(state)
+            marktplatzMalen(state)
           })
         }
       }
