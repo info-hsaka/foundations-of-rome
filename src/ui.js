@@ -37,7 +37,9 @@ function felderMalen(state) {
 
 function lagerMalen(state) {
   //fillRect(koordinate, form)
-  for (const gebäude of state.G.spieler[state.m]) {
+	let x = state.G.spieler[state.playerID].gebäude.koordinate[0]
+  for (const gebäude of state.G.spieler[/*playerID*/]) {
+		ctx.fillRect(x, y, gebäude[], gebäude.length * 50)
   }
 }
 
