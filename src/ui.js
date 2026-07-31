@@ -96,7 +96,7 @@ export function draw(
           ctx.strokeRect(x, y, feldGröße, feldGröße)
         }
       }
-      for (let i = 0; i < 6; i++) {
+      for (let i = 0; i < state.G.marktplatz.length; i++) {
         if (
           spalte == state.G.marktplatz[i][0] &&
           zeile == state.G.marktplatz[i][1]
