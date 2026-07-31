@@ -35,9 +35,11 @@ function felderMalen(state) {
   }
 }
 
-function lagerMalen(state) {}
-
-//fillRect(koordinate, )
+function lagerMalen(state) {
+  //fillRect(koordinate, form)
+  for (const gebäude of state.G.spieler[state.m]) {
+  }
+}
 
 //Einträge Marktplatz Funktion
 
