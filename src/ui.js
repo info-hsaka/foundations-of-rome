@@ -49,17 +49,49 @@ export function draw(
           onClick(x, y, feldGröße, feldGröße, () => {
             console.log("angeklickt")
             moves.grundstückKaufen(i)
-            ctx.clearRect(x + 1, y + 1, feldGröße - 2, feldGröße - 2)
+            for (let zeile = 0; zeile < 8; zeile++) {
+              for (let spalte = 0; spalte < 8; spalte++) {
+                if (state.G.spielfeld[spalte][zeile] == "0") {
+                  ctx.fillStyle = "yellow"
+                  let x = spalte * feldGröße
+                  let y = zeile * feldGröße
+                  ctx.fillRect(x, y, feldGröße, feldGröße)
+                } else if (state.G.spielfeld[spalte][zeile] == "1") {
+                  ctx.fillStyle = "green"
+                  let x = spalte * feldGröße
+                  let y = zeile * feldGröße
+                  ctx.fillRect(x, y, feldGröße, feldGröße)
+                } else if (state.G.spielfeld[spalte][zeile] == "2") {
+                  ctx.fillStyle = "purple"
+                  let x = spalte * feldGröße
+                  let y = zeile * feldGröße
+                  ctx.fillRect(x, y, feldGröße, feldGröße)
+                }
+              }
+            }
           })
         }
       }
-			for (let zeile = 0; zeile < 8; zeile++) {
-				for (let spalte = 0; spalte < 8; spalte++) {
-					if (state.G.spielfeld[spalte][zeile] == "0")
-
-				}
-
-			}
+      for (let zeile = 0; zeile < 8; zeile++) {
+        for (let spalte = 0; spalte < 8; spalte++) {
+          if (state.G.spielfeld[spalte][zeile] == "0") {
+            ctx.fillStyle = "yellow"
+            let x = spalte * feldGröße
+            let y = zeile * feldGröße
+            ctx.fillRect(x, y, feldGröße, feldGröße)
+          } else if (state.G.spielfeld[spalte][zeile] == "1") {
+            ctx.fillStyle = "green"
+            let x = spalte * feldGröße
+            let y = zeile * feldGröße
+            ctx.fillRect(x, y, feldGröße, feldGröße)
+          } else if (state.G.spielfeld[spalte][zeile] == "2") {
+            ctx.fillStyle = "purple"
+            let x = spalte * feldGröße
+            let y = zeile * feldGröße
+            ctx.fillRect(x, y, feldGröße, feldGröße)
+          }
+        }
+      }
     }
   }
   // draw here
