@@ -4,6 +4,35 @@
 import { INVALID_MOVE } from "boardgame.io/src/core/constants"
 import { onClick } from "./canvas"
 
+const ctx = canvas.getContext("2d")
+function felderMalen(state) {
+  for (let zeile = 0; zeile < 8; zeile++) {
+    for (let spalte = 0; spalte < 8; spalte++) {
+      if (state.G.spielfeld[spalte][zeile] == "0") {
+        ctx.fillStyle = "rgb(255, 182, 36)"
+        let x = spalte * feldGröße
+        let y = zeile * feldGröße
+        ctx.fillRect(x, y, feldGröße, feldGröße)
+      } else if (state.G.spielfeld[spalte][zeile] == "1") {
+        ctx.fillStyle = "rgb(107, 133, 74)"
+        let x = spalte * feldGröße
+        let y = zeile * feldGröße
+        ctx.fillRect(x, y, feldGröße, feldGröße)
+      } else if (state.G.spielfeld[spalte][zeile] == "2") {
+        ctx.fillStyle = "rgb(102, 60, 121)"
+        let x = spalte * feldGröße
+        let y = zeile * feldGröße
+        ctx.fillRect(x, y, feldGröße, feldGröße)
+      } else if (state.G.spielfeld[spalte][zeile] == "3") {
+        ctx.fillStyle = "rgb(111, 169, 187)"
+        let x = spalte * feldGröße
+        let y = zeile * feldGröße
+        ctx.fillRect(x, y, feldGröße, feldGröße)
+      }
+    }
+  }
+}
+
 export function draw(
   /** @type {ClientState<[ReturnType<Game["setup"]>]>} */
   state,
@@ -51,57 +80,13 @@ export function draw(
           onClick(x, y, feldGröße, feldGröße, () => {
             console.log("angeklickt")
             moves.grundstückKaufen(i)
-
-            for (let zeile = 0; zeile < 8; zeile++) {
-              for (let spalte = 0; spalte < 8; spalte++) {
-                if (state.G.spielfeld[spalte][zeile] == "0") {
-                  ctx.fillStyle = "rgb(255, 182, 36)"
-                  let x = spalte * feldGröße
-                  let y = zeile * feldGröße
-                  ctx.fillRect(x, y, feldGröße, feldGröße)
-                } else if (state.G.spielfeld[spalte][zeile] == "1") {
-                  ctx.fillStyle = "rgb(107, 133, 74)"
-                  let x = spalte * feldGröße
-                  let y = zeile * feldGröße
-                  ctx.fillRect(x, y, feldGröße, feldGröße)
-                } else if (state.G.spielfeld[spalte][zeile] == "2") {
-                  ctx.fillStyle = "rgb(102, 60, 121)"
-                  let x = spalte * feldGröße
-                  let y = zeile * feldGröße
-                  ctx.fillRect(x, y, feldGröße, feldGröße)
-                } else if (state.G.spielfeld[spalte][zeile] == "3") {
-                  ctx.fillStyle = "rgb(111, 169, 187)"
-                  let x = spalte * feldGröße
-                  let y = zeile * feldGröße
-                  ctx.fillRect(x, y, feldGröße, feldGröße)
-                }
-              }
-            }
+            felderMalen(state)
             ctx.fillStyle = "white"
             ctx.fillRect(15, 465, 370, 70)
           })
         }
       }
-      for (let zeile = 0; zeile < 8; zeile++) {
-        for (let spalte = 0; spalte < 8; spalte++) {
-          if (state.G.spielfeld[spalte][zeile] == "0") {
-            ctx.fillStyle = "yellow"
-            let x = spalte * feldGröße
-            let y = zeile * feldGröße
-            ctx.fillRect(x, y, feldGröße, feldGröße)
-          } else if (state.G.spielfeld[spalte][zeile] == "1") {
-            ctx.fillStyle = "green"
-            let x = spalte * feldGröße
-            let y = zeile * feldGröße
-            ctx.fillRect(x, y, feldGröße, feldGröße)
-          } else if (state.G.spielfeld[spalte][zeile] == "2") {
-            ctx.fillStyle = "purple"
-            let x = spalte * feldGröße
-            let y = zeile * feldGröße
-            ctx.fillRect(x, y, feldGröße, feldGröße)
-          }
-        }
-      }
+      felderMalen(state)
     }
   }
   // draw here
