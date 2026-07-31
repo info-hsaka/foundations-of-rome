@@ -4,7 +4,9 @@
 import { INVALID_MOVE } from "boardgame.io/src/core/constants"
 import { onClick } from "./canvas"
 
+const canvas = document.getElementById("canvas")
 const ctx = canvas.getContext("2d")
+let feldGröße = 50
 function felderMalen(state) {
   for (let zeile = 0; zeile < 8; zeile++) {
     for (let spalte = 0; spalte < 8; spalte++) {
@@ -42,7 +44,6 @@ export function draw(
   const canvas = document.getElementById("canvas")
   const ctx = canvas.getContext("2d")
   let feldGröße = 50
-  let i = 0
   for (let zeile = 0; zeile < 8; zeile++) {
     for (let spalte = 0; spalte < 8; spalte++) {
       let x = spalte * feldGröße
