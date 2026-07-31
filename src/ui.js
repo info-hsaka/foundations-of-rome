@@ -45,7 +45,7 @@ function marktplatzMalen(state) {
       ctx.textAlign = "center"
       ctx.textBaseline = "middle"
       let buchstabe = ["A", "B", "C", "D", "E", "F", "G", "H"]
-      let text = buchstabe[zeile] + (spalte + 1)
+      let text = buchstabe[spalte] + (zeile + 1)
       console.log(67)
       for (let i = 0; i < 6; i++) {
         if (
@@ -82,7 +82,7 @@ export function draw(
       ctx.textAlign = "center"
       ctx.textBaseline = "middle"
       let buchstabe = ["A", "B", "C", "D", "E", "F", "G", "H"]
-      let text = buchstabe[zeile] + (spalte + 1)
+      let text = buchstabe[spalte] + (zeile + 1)
       ctx.fillText(text, x + 25, y + 25)
       for (let i = 0; i < 6; i++) {
         if (
