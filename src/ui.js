@@ -36,10 +36,11 @@ function felderMalen(state) {
 }
 
 function lagerMalen(state) {
+  console.log(state)
   //fillRect(koordinate, form)
-  let x = state.G.spieler[state.playerID].gebäude.koordinate[0]
-  let y = state.G.spieler[state.playerID].gebäude.koordinate[1]
-  for (const gebäude of state.G.spieler[state.playerID].gebäude) {
+  let x = state.G.spieler[state.ctx.currentPlayer].gebäude.koordinaten[0]
+  let y = state.G.spieler[state.ctx.currentPlayer].gebäude.koordinaten[1]
+  for (const gebäude of state.G.spieler[state.ctx.currentPlayer].gebäude) {
     ctx.fillRect(x, y, gebäude.form[0].length * 50, gebäude.form.length * 50)
   }
 }
@@ -75,7 +76,7 @@ export function draw(
   let feldGröße = 50
   //ctx.clearRect(0, 0, canvas.width, canvas.height)
   marktplatzMalen(state)
-  //lagerMalen(state)
+  lagerMalen(state)
 
   for (let zeile = 0; zeile < 8; zeile++) {
     for (let spalte = 0; spalte < 8; spalte++) {
