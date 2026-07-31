@@ -38,7 +38,11 @@ export const Game = {
         geld: 5 + s,
         bevölkerung: 0,
         grundstücke: grundstücke,
-        gebäude: [],
+        gebäude: [
+          { koordinaten: [], funktion: "geld", form: [[1]] },
+          { koordinaten: [], funktion: "pops", form: [[1]] },
+          { koordinaten: [], funktion: "geld", form: [[1, 1]] },
+        ],
       })
     }
     console.log(spieler)
