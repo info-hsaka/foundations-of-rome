@@ -84,6 +84,9 @@ export function draw(
             felderMalen(state)
             ctx.fillStyle = "white"
             ctx.fillRect(15, 465, 370, 70)
+            ctx.fillStyle = "grey"
+            let xpos = 35 + i * 66
+            ctx.fillText(text, xpos, 475)
           })
         }
       }
