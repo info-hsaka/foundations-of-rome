@@ -57,8 +57,6 @@ export const Game = {
 
   moves: {
     /** @type {Move} */
-    playCard: ({ G, ctx, playerID, events, random }, cardIndex) => {},
-    drawCard(ctx) {},
     geldNehmen: function geldNehmen(move) {
       move.G.spieler[move.playerID].geld += 5 //+ Geld Gebäude
     },
@@ -84,7 +82,7 @@ export const Game = {
         return INVALID_MOVE
       }
     },
-    gebäudeBauen: function gebäudeBauen(move, feld) {
+    gebäudeBauen: function gebäudeBauen(move, gebäude) {
       let hatGrundstück = false
       for (const grundstück of move.G.spieler[move.playerID].grundstücke) {
         if (grundstück[0] == feld[0] && grundstück[1] == feld[1]) {
