@@ -75,6 +75,7 @@ export function draw(
   let feldGröße = 50
   //ctx.clearRect(0, 0, canvas.width, canvas.height)
   marktplatzMalen(state)
+  //lagerMalen(state)
 
   for (let zeile = 0; zeile < 8; zeile++) {
     for (let spalte = 0; spalte < 8; spalte++) {
