@@ -72,7 +72,7 @@ export function draw(
               }
             }
             ctx.fillStyle = "white"
-            ctx.fillRect()
+            ctx.fillRect(15, 465, 370, 70)
           })
         }
       }
