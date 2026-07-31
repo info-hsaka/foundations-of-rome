@@ -51,6 +51,7 @@ export function draw(
           onClick(x, y, feldGröße, feldGröße, () => {
             console.log("angeklickt")
             moves.grundstückKaufen(i)
+            draw(state, moves)
             for (let zeile = 0; zeile < 8; zeile++) {
               for (let spalte = 0; spalte < 8; spalte++) {
                 if (state.G.spielfeld[spalte][zeile] == "0") {
@@ -73,7 +74,6 @@ export function draw(
             }
             ctx.fillStyle = "white"
             ctx.fillRect(15, 465, 370, 70)
-            draw(state)
           })
         }
       }
