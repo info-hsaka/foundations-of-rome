@@ -110,9 +110,9 @@ export function draw(
             moves.grundstückKaufen(i)
             felderMalen(state)
             ctx.fillStyle = "white"
-            ctx.fillRect(15, 465, 370, 70)
+            //ctx.fillRect(15, 465, 370, 70)
             console.log("angeklickt")
-            marktplatzMalen(state)
+            //marktplatzMalen(state)
           })
         }
       }
