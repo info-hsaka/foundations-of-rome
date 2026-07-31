@@ -18,14 +18,24 @@ export const Game = {
     console.log(marktplatz)
 
     let spieler = []
-
-    for (let i = 0; i < 3; i++) {
+    let spielfeld = [
+      [null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null],
+    ]
+    for (let s = 0; s < 3; s++) {
       let grundstücke = []
       for (let i = 0; i < 6; i++) {
+        spielfeld[deck[0][0]][deck[0][1]] = s
         grundstücke.push(deck.shift())
       }
       spieler.push({
-        geld: 5 + i,
+        geld: 5 + s,
         bevölkerung: 0,
         grundstücke: grundstücke,
         gebäude: [],
@@ -34,16 +44,7 @@ export const Game = {
     console.log(spieler)
 
     return {
-      spielfeld: [
-        [null, null, null, null, null, null, null, null],
-        [null, null, null, null, null, null, null, null],
-        [null, null, null, null, null, null, null, null],
-        [null, null, null, null, null, null, null, null],
-        [null, null, null, null, null, null, null, null],
-        [null, null, null, null, null, null, null, null],
-        [null, null, null, null, null, null, null, null],
-        [null, null, null, null, null, null, null, null],
-      ],
+      spielfeld: spielfeld,
       deck: deck,
       spieler: spieler,
       marktplatz: marktplatz,
