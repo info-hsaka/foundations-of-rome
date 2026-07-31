@@ -65,7 +65,7 @@ export function draw(
                   let y = zeile * feldGröße
                   ctx.fillRect(x, y, feldGröße, feldGröße)
                 } else if (state.G.spielfeld[spalte][zeile] == "2") {
-                  ctx.fillStyle = "rgb(89, 80, 130)"
+                  ctx.fillStyle = "rgb(102, 60, 121)"
                   let x = spalte * feldGröße
                   let y = zeile * feldGröße
                   ctx.fillRect(x, y, feldGröße, feldGröße)
