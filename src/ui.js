@@ -27,6 +27,7 @@ export function draw(
       ctx.fillText(text, x + 25, y + 25)
       for (const karte of state.G.marktplatz) {
         if (spalte == karte[0] && zeile == karte[1]) {
+          //Karten im Marktplatz markieren
           ctx.strokeStyle = "orange"
           ctx.lineWidth = "6"
           ctx.strokeRect(x + 4, y + 4, feldGröße - 8, feldGröße - 8)
