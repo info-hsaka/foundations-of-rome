@@ -46,7 +46,7 @@ function marktplatzMalen(state) {
   let buchstabe = ["A", "B", "C", "D", "E", "F", "G", "H"]
 
   console.log(state.G.marktplatz)
-  for (let i = 0; i < 6; i++) {
+  for (let i = 0; i < state.G.marktplatz.length; i++) {
     let text =
       buchstabe[state.G.marktplatz[i][0]] + (state.G.marktplatz[i][1] + 1)
     let xpos = 35 + i * 66
@@ -79,7 +79,7 @@ export function draw(
       let buchstabe = ["A", "B", "C", "D", "E", "F", "G", "H"]
       let text = buchstabe[spalte] + (zeile + 1)
       ctx.fillText(text, x + 25, y + 25)
-      for (let i = 0; i < 6; i++) {
+      for (let i = 0; i < state.G.marktplatz.length; i++) {
         if (
           spalte == state.G.marktplatz[i][0] &&
           zeile == state.G.marktplatz[i][1]
