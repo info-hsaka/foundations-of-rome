@@ -35,6 +35,30 @@ function felderMalen(state) {
   }
 }
 
+//Einträge Marktplatz Funktion
+
+function marktplatzMalen(state) {
+  for (let zeile = 0; zeile < 8; zeile++) {
+    for (let spalte = 0; spalte < 8; spalte++) {
+      ctx.fillStyle = "grey"
+      ctx.font = "20px Arial"
+      ctx.textAlign = "center"
+      ctx.textBaseline = "middle"
+      let buchstabe = ["A", "B", "C", "D", "E", "F", "G", "H"]
+      let text = buchstabe[zeile] + (spalte + 1)
+      for (let i = 0; i < 6; i++) {
+        if (
+          spalte == state.G.marktplatz[i][0] &&
+          zeile == state.G.marktplatz[i][1]
+        ) {
+          let xpos = 35 + i * 66
+          ctx.fillText(text, xpos, 475)
+        }
+      }
+    }
+  }
+}
+
 export function draw(
   /** @type {ClientState<[ReturnType<Game["setup"]>]>} */
   state,
@@ -44,6 +68,9 @@ export function draw(
   const canvas = document.getElementById("canvas")
   const ctx = canvas.getContext("2d")
   let feldGröße = 50
+
+  marktplatzMalen(state)
+
   for (let zeile = 0; zeile < 8; zeile++) {
     for (let spalte = 0; spalte < 8; spalte++) {
       let x = spalte * feldGröße
@@ -65,8 +92,7 @@ export function draw(
           ctx.lineWidth = "6"
           ctx.strokeRect(x + 4, y + 4, feldGröße - 8, feldGröße - 8)
 
-          let xpos = 35 + i * 66
-          ctx.fillText(text, xpos, 475) // Einträge Marktplatz
+          // Einträge Marktplatz
         } else {
           ctx.lineWidth = "1"
           ctx.strokeStyle = "black"
@@ -84,9 +110,8 @@ export function draw(
             felderMalen(state)
             ctx.fillStyle = "white"
             ctx.fillRect(15, 465, 370, 70)
-            ctx.fillStyle = "grey"
-            let xpos = 35 + i * 66
-            ctx.fillText(text, xpos, 475)
+
+            marktplatzMalen(state)
           })
         }
       }
