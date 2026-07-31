@@ -36,7 +36,7 @@ export function draw(
           ctx.strokeRect(x + 4, y + 4, feldGröße - 8, feldGröße - 8)
 
           let xpos = 35 + i * 66
-          ctx.fillText(text, xpos, 475)
+          ctx.fillText(text, xpos, 475) // Einträge Marktplatz
         } else {
           ctx.lineWidth = "1"
           ctx.strokeStyle = "black"
@@ -71,6 +71,8 @@ export function draw(
                 }
               }
             }
+            ctx.fillStyle = "white"
+            ctx.fillRect()
           })
         }
       }
