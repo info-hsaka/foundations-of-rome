@@ -39,9 +39,27 @@ export const Game = {
         bevölkerung: 0,
         grundstücke: grundstücke,
         gebäude: [
-          { koordinaten: [], funktion: "geld", form: [[1]], gebaut: false},
-          { koordinaten: [], funktion: "pops", form: [[1]], gebaut: false},
-          { koordinaten: [], funktion: "geld", form: [[1, 1]], gebaut: false},
+          {
+            koordinaten: [],
+            funktion: "geld",
+            form: [[1]],
+            gebaut: false,
+            wert: 1,
+          },
+          {
+            koordinaten: [],
+            funktion: "pops",
+            form: [[1]],
+            gebaut: false,
+            wert: 1,
+          },
+          {
+            koordinaten: [],
+            funktion: "geld",
+            form: [[1, 1]],
+            gebaut: false,
+            wert: 1,
+          },
         ],
       })
     }
@@ -58,12 +76,13 @@ export const Game = {
   moves: {
     /** @type {Move} */
     geldNehmen: function geldNehmen(move) {
+      let extraGeld = 0
       for (const gebäude of move.G.spieler[move.playerID].gebäude) {
         if (gebäude.funktion == "geld" && gebäude.gebaut == true) {
-
+          extraGeld += gebäude.wert
         }
       }
-      move.G.spieler[move.playerID].geld += 5
+      move.G.spieler[move.playerID].geld += 5 + extraGeld // noch nicht in Praxis versucht
     },
     grundstückKaufen: function grundstückKaufen(move, grundstückPos) {
       let preisliste = [2, 3, 4, 6, 8, 10]
@@ -87,11 +106,23 @@ export const Game = {
         return INVALID_MOVE
       }
     },
-    gebäudeBauen: function gebäudeBauen(move, gebäude) {
+    gebäudeBauen: function gebäudeBauen(move, gebäude, pos) {
       let hatGrundstück = false
-      for (const grundstück of move.G.spieler[move.playerID].grundstücke) {
-        if (grundstück[0] == feld[0] && grundstück[1] == feld[1]) {
-          hatGrundstück = true
+      for (let zeile = 0; zeile < gebäude.form.length; zeile++) {
+        for (let spalte = 0; spalte < gebäude[0].length; spalte++) {
+          if (gebäude.form[zeile][spalte] == 1) {
+            for (const grundstück of move.G.spieler[move.playerID]
+              .grundstücke) {
+              if (
+                grundstück[0] == pos[0] + zeile &&
+                grundstück[1] == pos[1] + spalte
+              ) {
+                hatGrundstück = true
+              } else {
+                return INVALID_MOVE
+              }
+            }
+          }
         }
       }
       console.log(hatGrundstück)
