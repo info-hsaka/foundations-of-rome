@@ -38,8 +38,10 @@ function felderMalen(state) {
 function lagerMalen(state) {
   console.log(state)
   //fillRect(koordinate, form)
-  let x = state.G.spieler[state.ctx.currentPlayer].gebäude.koordinaten[0]
-  let y = state.G.spieler[state.ctx.currentPlayer].gebäude.koordinaten[1]
+  let x =
+    state.G.spieler[parseInt(state.ctx.currentPlayer)].gebäude.koordinaten[0] //es funmktioniert NICHT!!!!!!
+  let y =
+    state.G.spieler[parseInt(state.ctx.currentPlayer)].gebäude.koordinaten[1]
   for (const gebäude of state.G.spieler[state.ctx.currentPlayer].gebäude) {
     ctx.fillRect(x, y, gebäude.form[0].length * 50, gebäude.form.length * 50)
   }
