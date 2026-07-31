@@ -25,15 +25,17 @@ export function draw(
       let buchstabe = ["A", "B", "C", "D", "E", "F", "G", "H"]
       let text = buchstabe[zeile] + (spalte + 1)
       ctx.fillText(text, x + 25, y + 25)
-      for (const karte of state.G.marktplatz) {
-        if (spalte == karte[0] && zeile == karte[1]) {
+      for (let i = 0; i < 6; i++) {
+        if (
+          spalte == state.G.marktplatz[i][0] &&
+          zeile == state.G.marktplatz[i][1]
+        ) {
           //Karten im Marktplatz markieren
           ctx.strokeStyle = "orange"
           ctx.lineWidth = "6"
           ctx.strokeRect(x + 4, y + 4, feldGröße - 8, feldGröße - 8)
 
           let xpos = 35 + i * 66
-          i++
           ctx.fillText(text, xpos, 475)
         } else {
           ctx.lineWidth = "1"
