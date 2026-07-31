@@ -45,6 +45,7 @@ export const Game = {
             form: [[1]],
             gebaut: false,
             wert: 1,
+            id: 0,
           },
           {
             koordinaten: [],
@@ -52,6 +53,7 @@ export const Game = {
             form: [[1]],
             gebaut: false,
             wert: 1,
+            id: 1,
           },
           {
             koordinaten: [],
@@ -59,6 +61,7 @@ export const Game = {
             form: [[1, 1]],
             gebaut: false,
             wert: 1,
+            id: 2,
           },
         ],
       })
@@ -128,7 +131,12 @@ export const Game = {
       console.log(hatGrundstück)
 
       if (hatGrundstück) {
-        move.G.spieler[move.playerID].gebäude.push(feld)
+        for (const element of move.G.spieler[move.playerID].gebäude) {
+          if (element.id == gebäude.id) {
+            element.koordinaten = pos
+            element.gebaut = true
+          }
+        }
       }
     },
   },

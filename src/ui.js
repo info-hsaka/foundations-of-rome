@@ -35,6 +35,10 @@ function felderMalen(state) {
   }
 }
 
+function lagerMalen(state) {}
+
+//fillRect(koordinate, )
+
 //Einträge Marktplatz Funktion
 
 function marktplatzMalen(state) {
