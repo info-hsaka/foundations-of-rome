@@ -39,9 +39,9 @@ export const Game = {
         bevölkerung: 0,
         grundstücke: grundstücke,
         gebäude: [
-          { koordinaten: [], funktion: "geld", form: [[1]] },
-          { koordinaten: [], funktion: "pops", form: [[1]] },
-          { koordinaten: [], funktion: "geld", form: [[1, 1]] },
+          { koordinaten: [], funktion: "geld", form: [[1]], gebaut: false},
+          { koordinaten: [], funktion: "pops", form: [[1]], gebaut: false},
+          { koordinaten: [], funktion: "geld", form: [[1, 1]], gebaut: false},
         ],
       })
     }
@@ -58,7 +58,12 @@ export const Game = {
   moves: {
     /** @type {Move} */
     geldNehmen: function geldNehmen(move) {
-      move.G.spieler[move.playerID].geld += 5 //+ Geld Gebäude
+      for (const gebäude of move.G.spieler[move.playerID].gebäude) {
+        if (gebäude.funktion == "geld" && gebäude.gebaut == true) {
+
+        }
+      }
+      move.G.spieler[move.playerID].geld += 5
     },
     grundstückKaufen: function grundstückKaufen(move, grundstückPos) {
       let preisliste = [2, 3, 4, 6, 8, 10]
