@@ -109,6 +109,7 @@ export const Game = {
         return INVALID_MOVE
       }
     },
+    //noch nicht fertig
     gebäudeBauen: function gebäudeBauen(move, gebäude, pos) {
       let hatGrundstück = false
       for (let zeile = 0; zeile < gebäude.form.length; zeile++) {
