@@ -42,7 +42,9 @@ function lagerMalen(state) {
     state.G.spieler[Number(state.ctx.currentPlayer)].gebäude[0].koordinaten[0] //es funmktioniert NICHT!!!!!!
   let y =
     state.G.spieler[Number(state.ctx.currentPlayer)].gebäude[0].koordinaten[1]
+  console.log(x, y)
   for (const gebäude of state.G.spieler[state.ctx.currentPlayer].gebäude) {
+    ctx.fillStyle = "black"
     ctx.fillRect(x, y, gebäude.form[0].length * 50, gebäude.form.length * 50)
   }
 }

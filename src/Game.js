@@ -40,7 +40,7 @@ export const Game = {
         grundstücke: grundstücke,
         gebäude: [
           {
-            koordinaten: [500, 0],
+            koordinaten: [800, 0],
             funktion: "geld",
             form: [[1]],
             gebaut: false,
