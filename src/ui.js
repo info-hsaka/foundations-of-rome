@@ -39,10 +39,8 @@ function lagerMalen(state) {
   console.log(state)
 
   for (const gebäude of state.G.spieler[state.ctx.currentPlayer].gebäude) {
-    let x =
-      state.G.spieler[Number(state.ctx.currentPlayer)].gebäude[0].koordinaten[0]
-    let y =
-      state.G.spieler[Number(state.ctx.currentPlayer)].gebäude[0].koordinaten[1]
+    let x = gebäude.koordinaten[0]
+    let y = gebäude.koordinaten[1]
     console.log(x, y)
     ctx.fillStyle = "blue"
     ctx.fillRect(x, y, gebäude.form[0].length * 50, gebäude.form.length * 50)
@@ -128,6 +126,7 @@ export function draw(
     }
   }
   // draw here
+  //Geld nehmen Knopf
   ctx.fillStyle = "black"
   ctx.fillRect(425, 0, 200, 75)
   ctx.fillStyle = "white"
