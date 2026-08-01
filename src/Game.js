@@ -46,6 +46,7 @@ export const Game = {
             gebaut: false,
             wert: 1,
             id: 0,
+            angeclickt: false,
           },
           {
             koordinaten: [650, 75],
@@ -54,6 +55,7 @@ export const Game = {
             gebaut: false,
             wert: 1,
             id: 1,
+            angeclickt: false,
           },
           {
             koordinaten: [725, 0],
@@ -62,6 +64,7 @@ export const Game = {
             gebaut: false,
             wert: 1,
             id: 2,
+            angeclickt: false,
           },
         ],
       })
