@@ -152,4 +152,18 @@ export function draw(
   ctx.fillText("6€", 233, 425)
   ctx.fillText("8€", 299, 425)
   ctx.fillText("10€", 365, 425)
+
+  //Geld UI
+  ctx.strokeStyle = "black"
+  ctx.lineWidth = "3"
+  ctx.strokeRect(425, 100, 88, 50)
+  ctx.fillStyle = "green"
+  ctx.fillRect(425, 100, 88, 50)
+  ctx.fillStyle = "black"
+  ctx.font = "10px Arial"
+  ctx.textAlign = "center"
+  ctx.textBaseline = "middle"
+  ctx.fillText("" + state.G.spieler[state.currentPlayer].geld)
+
+  //Pops UI
 }
