@@ -157,8 +157,20 @@ export function draw(
   ctx.strokeStyle = "black"
   ctx.lineWidth = "3"
   ctx.strokeRect(425, 100, 88, 50)
-  ctx.fillStyle = "green"
-  ctx.fillRect(425, 100, 88, 50)
+  if (state.playerID == "0") {
+    ctx.fillStyle = "rgb(255, 182, 36)"
+    ctx.fillRect(425, 100, 88, 50)
+  } else if (state.currentPlayer == "1") {
+    ctx.fillStyle = "rgb(107, 133, 74)"
+    ctx.fillRect(425, 100, 88, 50)
+  } else if (state.currentPlayer == "2") {
+    ctx.fillStyle = "rgb(102, 60, 121)"
+    ctx.fillRect(425, 100, 88, 50)
+  } else if (state.currentPlayer == "3") {
+    ctx.fillStyle = "rgb(111, 169, 187)"
+    ctx.fillRect(425, 100, 88, 50)
+  }
+
   ctx.fillStyle = "black"
   ctx.font = "10px Arial"
   ctx.textAlign = "center"
