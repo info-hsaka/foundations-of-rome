@@ -154,28 +154,58 @@ export function draw(
   ctx.fillText("10€", 365, 425)
 
   //Geld UI
-  ctx.strokeStyle = "black"
-  ctx.lineWidth = "3"
-  ctx.strokeRect(425, 100, 88, 50)
-  if (state.playerID == "0") {
+  //ctx.strokeStyle = "black"
+  //ctx.lineWidth = "3"
+  //ctx.strokeRect(425, 100, 88, 50)
+  if (state.ctx.currentPlayer == "0") {
     ctx.fillStyle = "rgb(255, 182, 36)"
     ctx.fillRect(425, 100, 88, 50)
-  } else if (state.currentPlayer == "1") {
+  } else if (state.ctx.currentPlayer == "1") {
     ctx.fillStyle = "rgb(107, 133, 74)"
     ctx.fillRect(425, 100, 88, 50)
-  } else if (state.currentPlayer == "2") {
+  } else if (state.ctx.currentPlayer == "2") {
     ctx.fillStyle = "rgb(102, 60, 121)"
     ctx.fillRect(425, 100, 88, 50)
-  } else if (state.currentPlayer == "3") {
+  } else if (state.ctx.currentPlayer == "3") {
     ctx.fillStyle = "rgb(111, 169, 187)"
     ctx.fillRect(425, 100, 88, 50)
   }
 
   ctx.fillStyle = "black"
-  ctx.font = "10px Arial"
+  ctx.font = "20px Arial"
   ctx.textAlign = "center"
   ctx.textBaseline = "middle"
-  ctx.fillText("" + state.G.spieler[state.currentPlayer].geld)
+  ctx.fillText(
+    "" + state.G.spieler[state.ctx.currentPlayer].geld + "€",
+    469,
+    125,
+  )
 
   //Pops UI
+  //ctx.strokeStyle = "black"
+  //ctx.lineWidth = "3"
+  //ctx.strokeRect(425, 100, 88, 50)
+  if (state.ctx.currentPlayer == "0") {
+    ctx.fillStyle = "rgb(255, 182, 36)"
+    ctx.fillRect(538, 100, 88, 50)
+  } else if (state.ctx.currentPlayer == "1") {
+    ctx.fillStyle = "rgb(107, 133, 74)"
+    ctx.fillRect(538, 100, 88, 50)
+  } else if (state.ctx.currentPlayer == "2") {
+    ctx.fillStyle = "rgb(102, 60, 121)"
+    ctx.fillRect(538, 100, 88, 50)
+  } else if (state.ctx.currentPlayer == "3") {
+    ctx.fillStyle = "rgb(111, 169, 187)"
+    ctx.fillRect(538, 100, 88, 50)
+  }
+
+  ctx.fillStyle = "black"
+  ctx.font = "20px Arial"
+  ctx.textAlign = "center"
+  ctx.textBaseline = "middle"
+  ctx.fillText(
+    "" + state.G.spieler[state.ctx.currentPlayer].bevölkerung + " Pops",
+    582,
+    125,
+  )
 }
