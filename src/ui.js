@@ -216,5 +216,15 @@ export function draw(
 
   for (const gebäude of state.G.spieler[state.ctx.currentPlayer].gebäude) {
     //rot umranden
+    if (gebäude.angeclickt == true) {
+      ctx.strokeStyle = "Red"
+      ctx.lineWidth = "3"
+      ctx.strokeRect(
+        gebäude.koordinaten[0],
+        gebäude.koordinaten[1],
+        gebäude.form[0].length * 50,
+        gebäude.form.length * 50,
+      )
+    }
   }
 }
