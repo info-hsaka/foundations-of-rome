@@ -42,7 +42,11 @@ function lagerMalen(state) {
     let x = gebäude.koordinaten[0]
     let y = gebäude.koordinaten[1]
     console.log(x, y)
-    ctx.fillStyle = "blue"
+    if (gebäude.funktion == "geld") {
+      ctx.fillStyle = "green"
+    } else if (gebäude.funktion == "pops") {
+      ctx.fillStyle = "yellow"
+    }
     ctx.fillRect(x, y, gebäude.form[0].length * 50, gebäude.form.length * 50)
   }
 }

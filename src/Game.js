@@ -56,7 +56,7 @@ export const Game = {
             id: 1,
           },
           {
-            koordinaten: [, 60],
+            koordinaten: [725, 0],
             funktion: "geld",
             form: [[1, 1]],
             gebaut: false,
