@@ -48,6 +48,9 @@ function lagerMalen(state) {
       ctx.fillStyle = "yellow"
     }
     ctx.fillRect(x, y, gebäude.form[0].length * 50, gebäude.form.length * 50)
+    onClick(x, y, gebäude.form[0].length * 50, gebäude.form.length * 50, () => {
+      gebäude.angeclickt = true
+    })
   }
 }
 
@@ -208,4 +211,10 @@ export function draw(
     582,
     125,
   )
+
+  //angeclickte Gebäude umranden
+
+  for (const gebäude of state.G.spieler[state.ctx.currentPlayer].gebäude) {
+    //rot umranden
+  }
 }
