@@ -114,17 +114,19 @@ export const Game = {
     },
     //noch nicht fertig
     gebäudeBauen: function gebäudeBauen(move, gebäude, pos) {
-      console.log("egal")
+      console.log(gebäude, pos)
       for (let zeile = 0; zeile < gebäude.form.length; zeile++) {
         for (let spalte = 0; spalte < gebäude.form[0].length; spalte++) {
           if (gebäude.form[zeile][spalte] == 1) {
             for (const grundstück of move.G.spieler[move.playerID]
               .grundstücke) {
               if (
-                grundstück[0] == pos[0] + zeile &&
-                grundstück[1] == pos[1] + spalte
+                !(
+                  grundstück[0] == pos[0] + zeile &&
+                  grundstück[1] == pos[1] + spalte
+                )
               ) {
-              } else {
+                console.log(grundstück)
                 return INVALID_MOVE
               }
             }
