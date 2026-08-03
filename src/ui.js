@@ -65,10 +65,11 @@ function lagerMalen(state, moves) {
   }
 }
 function gebäudeAnzeigen(state) {
-  for (const gebäude of state.G.spieler[state.ctx.currentPlayer]
-    .gebauteGebäude) {
-    fillStyle = "red"
-    fillRect(gebäude.koordinaten[0], gebäude.koordinaten[1], 50, 50)
+  for (const spieler of state.G.spieler) {
+    for (const gebäude of spieler.gebauteGebäude) {
+      ctx.fillStyle = "red"
+      ctx.fillRect(gebäude.koordinaten[0], gebäude.koordinaten[1], 50, 50)
+    }
   }
 }
 
@@ -80,7 +81,6 @@ function gebäudeBauenPrüfen(state, moves, gebäude) {
     let pos = [grundstück[0], grundstück[1]]
     onClick(x, y, feldGröße, feldGröße, () => {
       moves.gebäudeBauen(gebäude, pos)
-      gebäudeAnzeigen(state)
     })
   }
 }
@@ -115,6 +115,7 @@ export function draw(
   //ctx.clearRect(0, 0, canvas.width, canvas.height)
   marktplatzMalen(state)
   lagerMalen(state, moves)
+  gebäudeAnzeigen(state)
 
   for (let zeile = 0; zeile < 8; zeile++) {
     for (let spalte = 0; spalte < 8; spalte++) {
