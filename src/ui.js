@@ -6,7 +6,7 @@ import { onClick } from "./canvas"
 
 const canvas = document.getElementById("canvas")
 const ctx = canvas.getContext("2d")
-let feldGröße = 50
+const feldGröße = 50
 function felderMalen(state) {
   for (let zeile = 0; zeile < 8; zeile++) {
     for (let spalte = 0; spalte < 8; spalte++) {
@@ -35,7 +35,7 @@ function felderMalen(state) {
   }
 }
 
-function lagerMalen(state) {
+function lagerMalen(state, moves) {
   console.log(state)
 
   for (const gebäude of state.G.spieler[state.ctx.currentPlayer].gebäude) {
@@ -49,7 +49,19 @@ function lagerMalen(state) {
     }
     ctx.fillRect(x, y, gebäude.form[0].length * 50, gebäude.form.length * 50)
     onClick(x, y, gebäude.form[0].length * 50, gebäude.form.length * 50, () => {
-      gebäude.angeclickt = true
+      //gebäude.angeclickt = true
+      gebäudeBauenPrüfen(state, moves, gebäude)
+    })
+  }
+}
+
+function gebäudeBauenPrüfen(state, moves, gebäude) {
+  for (const grundstück of state.G.spieler[state.ctx.currentPlayer]
+    .grundstücke) {
+    let x = grundstück[0] * feldGröße
+    let y = grundstück[1] * feldGröße
+    onClick(x, y, feldGröße, feldGröße, () => {
+      moves.gebäudeBauen(gebäude, [x, y])
     })
   }
 }
@@ -85,7 +97,7 @@ export function draw(
   let feldGröße = 50
   //ctx.clearRect(0, 0, canvas.width, canvas.height)
   marktplatzMalen(state)
-  lagerMalen(state)
+  lagerMalen(state, moves)
 
   for (let zeile = 0; zeile < 8; zeile++) {
     for (let spalte = 0; spalte < 8; spalte++) {
