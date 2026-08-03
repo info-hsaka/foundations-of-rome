@@ -127,7 +127,7 @@ export function draw(
     for (let spalte = 0; spalte < 8; spalte++) {
       let x = spalte * feldGröße
       let y = zeile * feldGröße
-      ctx.fillStyle = "grey"
+      ctx.fillStyle = "black"
       ctx.font = "20px Arial"
       ctx.textAlign = "center"
       ctx.textBaseline = "middle"
