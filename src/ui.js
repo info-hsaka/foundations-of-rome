@@ -41,7 +41,6 @@ function lagerMalen(state, moves) {
   for (const gebäude of state.G.spieler[state.ctx.currentPlayer].gebäude) {
     let x = gebäude.koordinaten[0]
     let y = gebäude.koordinaten[1]
-    console.log(x, y)
     if (gebäude.funktion == "geld") {
       ctx.fillStyle = "green"
     } else if (gebäude.funktion == "pops") {
@@ -76,13 +75,11 @@ function marktplatzMalen(state) {
 
   let buchstabe = ["A", "B", "C", "D", "E", "F", "G", "H"]
 
-  console.log(state.G.marktplatz)
   for (let i = 0; i < state.G.marktplatz.length; i++) {
     let text =
       buchstabe[state.G.marktplatz[i][0]] + (state.G.marktplatz[i][1] + 1)
     let xpos = 35 + i * 66
     ctx.fillText(text, xpos, 475)
-    console.log(text)
   }
 }
 

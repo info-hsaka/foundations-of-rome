@@ -115,7 +115,7 @@ export const Game = {
     //noch nicht fertig
     gebäudeBauen: function gebäudeBauen(move, gebäude, pos) {
       for (let zeile = 0; zeile < gebäude.form.length; zeile++) {
-        for (let spalte = 0; spalte < gebäude[0].length; spalte++) {
+        for (let spalte = 0; spalte < gebäude.form[0].length; spalte++) {
           if (gebäude.form[zeile][spalte] == 1) {
             for (const grundstück of move.G.spieler[move.playerID]
               .grundstücke) {
@@ -124,13 +124,13 @@ export const Game = {
                 grundstück[1] == pos[1] + spalte
               ) {
               } else {
+                console.log(grundstück)
                 return INVALID_MOVE
               }
             }
           }
         }
       }
-      console.log(hatGrundstück)
 
       for (const element of move.G.spieler[move.playerID].gebäude) {
         if (element.id == gebäude.id) {
