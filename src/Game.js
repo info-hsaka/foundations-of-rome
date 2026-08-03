@@ -137,6 +137,9 @@ export const Game = {
           element.koordinaten = pos
           move.G.spieler[move.playerID].gebauteGebäude.push(element)
           move.G.spieler[move.playerID].gebäude.splice(i, 1)
+          if (element.funktion == "pops") {
+            move.G.spieler[move.playerID].bevölkerung += element.wert
+          }
         }
       }
     },
