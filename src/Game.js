@@ -114,6 +114,7 @@ export const Game = {
     },
     //noch nicht fertig
     gebäudeBauen: function gebäudeBauen(move, gebäude, pos) {
+      console.log("egal")
       for (let zeile = 0; zeile < gebäude.form.length; zeile++) {
         for (let spalte = 0; spalte < gebäude.form[0].length; spalte++) {
           if (gebäude.form[zeile][spalte] == 1) {
@@ -124,7 +125,6 @@ export const Game = {
                 grundstück[1] == pos[1] + spalte
               ) {
               } else {
-                console.log(grundstück)
                 return INVALID_MOVE
               }
             }

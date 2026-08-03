@@ -36,8 +36,6 @@ function felderMalen(state) {
 }
 
 function lagerMalen(state, moves) {
-  console.log(state)
-
   for (const gebäude of state.G.spieler[state.ctx.currentPlayer].gebäude) {
     let x = gebäude.koordinaten[0]
     let y = gebäude.koordinaten[1]
@@ -60,7 +58,7 @@ function gebäudeBauenPrüfen(state, moves, gebäude) {
     let x = grundstück[0] * feldGröße
     let y = grundstück[1] * feldGröße
     onClick(x, y, feldGröße, feldGröße, () => {
-      moves.gebäudeBauen(gebäude, [x, y])
+      moves.gebäudeBauen(gebäude, [grundstück[0], grundstück[1]])
     })
   }
 }
