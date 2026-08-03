@@ -64,6 +64,7 @@ function lagerMalen(state, moves) {
     })
   }
 }
+function gebäudeAnzeigen() {}
 
 function gebäudeBauenPrüfen(state, moves, gebäude) {
   for (const grundstück of state.G.spieler[state.ctx.currentPlayer]

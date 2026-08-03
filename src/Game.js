@@ -123,6 +123,7 @@ export const Game = {
               move.G.spielfeld[pos[0] + spalte][pos[1] + zeile] == move.playerID
             ) {
               console.log("ananas")
+              //nochmal drüberschaun bitte
             } else {
               return INVALID_MOVE
             }
@@ -130,11 +131,12 @@ export const Game = {
         }
       }
 
-      for (const element of move.G.spieler[move.playerID].gebäude) {
+      for (let i = 0; i < move.G.spieler[move.playerID].gebäude.length; i++) {
+        let element = move.G.spieler[move.playerID].gebäude[i]
         if (element.id == gebäude.id) {
           element.koordinaten = pos
           move.G.spieler[move.playerID].gebauteGebäude.push(element)
-          move.G.spieler[move.playerID].gebäude.splice(element)
+          move.G.spieler[move.playerID].gebäude.splice(i, 1)
         }
       }
     },
