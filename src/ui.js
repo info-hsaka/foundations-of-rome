@@ -64,9 +64,11 @@ function lagerMalen(state, moves) {
     })
   }
 }
-function gebäudeAnzeigen(state, pos) {
+function gebäudeAnzeigen(state) {
   for (const gebäude of state.G.spieler[state.ctx.currentPlayer]
     .gebauteGebäude) {
+    fillStyle = "red"
+    fillRect(gebäude.koordinaten[0], gebäude.koordinaten[1], 50, 50)
   }
 }
 
@@ -78,7 +80,7 @@ function gebäudeBauenPrüfen(state, moves, gebäude) {
     let pos = [grundstück[0], grundstück[1]]
     onClick(x, y, feldGröße, feldGröße, () => {
       moves.gebäudeBauen(gebäude, pos)
-      gebäudeAnzeigen(state, pos)
+      gebäudeAnzeigen(state)
     })
   }
 }

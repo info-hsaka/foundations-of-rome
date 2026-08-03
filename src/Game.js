@@ -38,6 +38,7 @@ export const Game = {
         geld: 5 + s,
         bevölkerung: 0,
         grundstücke: grundstücke,
+        gebauteGebäude: [],
         gebäude: [
           {
             koordinaten: [650, 0],
@@ -67,7 +68,6 @@ export const Game = {
             angeclickt: false,
           },
         ],
-        gebauteGebäude: [],
       })
     }
     console.log(spieler)
