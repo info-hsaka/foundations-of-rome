@@ -64,15 +64,21 @@ function lagerMalen(state, moves) {
     })
   }
 }
-function gebäudeAnzeigen() {}
+function gebäudeAnzeigen(state, pos) {
+  for (const gebäude of state.G.spieler[state.ctx.currentPlayer]
+    .gebauteGebäude) {
+  }
+}
 
 function gebäudeBauenPrüfen(state, moves, gebäude) {
   for (const grundstück of state.G.spieler[state.ctx.currentPlayer]
     .grundstücke) {
     let x = grundstück[0] * feldGröße
     let y = grundstück[1] * feldGröße
+    let pos = [grundstück[0], grundstück[1]]
     onClick(x, y, feldGröße, feldGröße, () => {
-      moves.gebäudeBauen(gebäude, [grundstück[0], grundstück[1]])
+      moves.gebäudeBauen(gebäude, pos)
+      gebäudeAnzeigen(state, pos)
     })
   }
 }
