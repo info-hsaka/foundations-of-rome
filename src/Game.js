@@ -41,7 +41,7 @@ export const Game = {
         gebauteGebäude: [],
         gebäude: [
           //1x1 Gebäude
-          {
+          /*{
             koordinaten: [650, 0],
             funktion: "geld",
             form: [[1]],
@@ -113,7 +113,7 @@ export const Game = {
             wert: 2,
             id: 7,
             grafik: [],
-          },
+          },*/
           //L-Gebäude
           {
             koordinaten: [725, 0],
@@ -166,7 +166,7 @@ export const Game = {
             grafik: [],
           },
           {
-            koordinaten: [950, 0],
+            koordinaten: [925, 0],
             funktion: "geld",
             form: [
               [1, 1],
@@ -179,7 +179,7 @@ export const Game = {
           },
           //4x1 Gebäude
           {
-            koordinaten: [725, 75],
+            koordinaten: [750, 50],
             funktion: "pops",
             form: [[1, 1, 1, 1]],
             gebaut: false,
@@ -188,7 +188,7 @@ export const Game = {
             grafik: [],
           },
           {
-            koordinaten: [775, 0],
+            koordinaten: [750, 0],
             funktion: "geld",
             form: [[1, 1, 1, 1]],
             gebaut: false,
