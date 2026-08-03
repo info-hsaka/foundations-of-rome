@@ -67,6 +67,7 @@ export const Game = {
             angeclickt: false,
           },
         ],
+        gebauteGebäude: [],
       })
     }
     console.log(spieler)
@@ -127,9 +128,11 @@ export const Game = {
               ) {
                 hatGrundstück = true
               } else {
-                console.log("Grundstück: " + grundstück)
-                return INVALID_MOVE
               }
+            }
+            if (hatGrundstück == false) {
+              console.log("Grundstück: " + grundstück)
+              return INVALID_MOVE
             }
           }
         }
@@ -138,7 +141,7 @@ export const Game = {
       for (const element of move.G.spieler[move.playerID].gebäude) {
         if (element.id == gebäude.id) {
           element.koordinaten = pos
-          element.gebaut = true
+          move.G.spieler[move.playerID].gebauteGebäude.push(element)
         }
       }
     },
