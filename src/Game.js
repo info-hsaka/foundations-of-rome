@@ -131,7 +131,6 @@ export const Game = {
               }
             }
             if (hatGrundstück == false) {
-              console.log("Grundstück: " + grundstück)
               return INVALID_MOVE
             }
           }
