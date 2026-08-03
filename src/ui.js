@@ -68,7 +68,12 @@ function gebäudeAnzeigen(state) {
   for (const spieler of state.G.spieler) {
     for (const gebäude of spieler.gebauteGebäude) {
       ctx.fillStyle = "red"
-      ctx.fillRect(gebäude.koordinaten[0], gebäude.koordinaten[1], 50, 50)
+      ctx.fillRect(
+        gebäude.koordinaten[0] * 50,
+        gebäude.koordinaten[1] * 50,
+        gebäude.form[0].length * 50,
+        gebäude.form.length * 50,
+      )
     }
   }
 }
@@ -115,6 +120,7 @@ export function draw(
   //ctx.clearRect(0, 0, canvas.width, canvas.height)
   marktplatzMalen(state)
   lagerMalen(state, moves)
+  felderMalen(state)
   gebäudeAnzeigen(state)
 
   for (let zeile = 0; zeile < 8; zeile++) {
@@ -152,14 +158,14 @@ export function draw(
         ) {
           onClick(x, y, feldGröße, feldGröße, () => {
             moves.grundstückKaufen(i)
-            felderMalen(state)
+            //felderMalen(state)
 
             console.log("angeklickt")
             //marktplatzMalen(state)
           })
         }
       }
-      felderMalen(state)
+      //felderMalen(state)
     }
   }
   // draw here
