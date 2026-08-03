@@ -115,17 +115,13 @@ export const Game = {
     },
     //noch nicht fertig
     gebäudeBauen: function gebäudeBauen(move, gebäude, pos) {
-      //let hatGrundstück = false
       console.log(gebäude, pos)
       for (let zeile = 0; zeile < gebäude.form.length; zeile++) {
         for (let spalte = 0; spalte < gebäude.form[0].length; spalte++) {
           if (gebäude.form[zeile][spalte] == 1) {
-            //hatGrundstück = false
-
             if (
               move.G.spielfeld[pos[0] + spalte][pos[1] + zeile] == move.playerID
             ) {
-              //hatGrundstück = true
               console.log("ananas")
             } else {
               return INVALID_MOVE
