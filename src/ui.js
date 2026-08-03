@@ -38,7 +38,7 @@ function felderMalen(state) {
 function gebäudeMarkieren(gebäude) {
   //durchsichtiger machen
   console.log("blubb")
-  ctx.fillStyle = "rgba(255, 0, 0, 0.5)"
+  ctx.fillStyle = "rgba(255, 255, 255, 0.5)"
   ctx.fillRect(
     gebäude.koordinaten[0],
     gebäude.koordinaten[1],
@@ -59,6 +59,7 @@ function lagerMalen(state, moves) {
     ctx.fillRect(x, y, gebäude.form[0].length * 50, gebäude.form.length * 50)
     onClick(x, y, gebäude.form[0].length * 50, gebäude.form.length * 50, () => {
       //gebäude.angeclickt = true
+      gebäudeMarkieren(gebäude)
       gebäudeBauenPrüfen(state, moves, gebäude)
     })
   }
@@ -70,7 +71,6 @@ function gebäudeBauenPrüfen(state, moves, gebäude) {
     let x = grundstück[0] * feldGröße
     let y = grundstück[1] * feldGröße
     onClick(x, y, feldGröße, feldGröße, () => {
-      gebäudeMarkieren(gebäude)
       moves.gebäudeBauen(gebäude, [grundstück[0], grundstück[1]])
     })
   }

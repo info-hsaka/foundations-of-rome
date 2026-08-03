@@ -134,6 +134,7 @@ export const Game = {
         if (element.id == gebäude.id) {
           element.koordinaten = pos
           move.G.spieler[move.playerID].gebauteGebäude.push(element)
+          move.G.spieler[move.playerID].gebäude.splice(element)
         }
       }
     },
