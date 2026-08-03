@@ -122,7 +122,9 @@ export const Game = {
           if (gebäude.form[zeile][spalte] == 1) {
             //hatGrundstück = false
 
-            if (spielfeld[pos[0] + zeile][pos[1] + spalte] == move.playerID) {
+            if (
+              move.G.spielfeld[pos[0] + spalte][pos[1] + zeile] == move.playerID
+            ) {
               //hatGrundstück = true
               console.log("ananas")
             } else {
