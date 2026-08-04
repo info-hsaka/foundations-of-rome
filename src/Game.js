@@ -86,6 +86,7 @@ export const Game = {
             gebaut: false,
             wert: 1,
             id: 4,
+            sp: 2,
             grafik: [],
           },
           {
@@ -95,6 +96,7 @@ export const Game = {
             gebaut: false,
             wert: 1,
             id: 5,
+            sp: 2,
             grafik: [],
           },
           {
@@ -126,6 +128,7 @@ export const Game = {
             gebaut: false,
             wert: 2,
             id: 8,
+            sp: 3,
             grafik: [],
           },
           {
@@ -148,6 +151,7 @@ export const Game = {
             gebaut: false,
             wert: 2,
             id: 10,
+            sp: 3,
             grafik: [],
           },
           {
@@ -182,6 +186,7 @@ export const Game = {
             gebaut: false,
             wert: 4,
             id: 13,
+            sp: 5,
             grafik: [],
           },
           //4x1 Gebäude
@@ -201,6 +206,7 @@ export const Game = {
             gebaut: false,
             wert: 3,
             id: 15,
+            sp: 5,
             grafik: [],
           },
         ],
