@@ -63,7 +63,6 @@ function lagerMalen(state, moves) {
       for (let spalte = 0; spalte < gebäude.form[0].length; spalte++) {
         if (gebäude.form[zeile][spalte] == 1) {
           ctx.fillRect(spalte * 50 + x, zeile * 50 + y, 50, 50)
-          console.log("scheiße")
           onClick(spalte * 50 + x, zeile * 50 + y, 50, 50, () => {
             gebäudeMarkieren(gebäude)
             gebäudeBauenPrüfen(state, moves, gebäude)
@@ -80,14 +79,12 @@ function gebäudeAnzeigen(state) {
   for (const spieler of state.G.spieler) {
     for (const gebäude of spieler.gebauteGebäude) {
       ctx.fillStyle = "red"
-      for (const gebäude of state.G.spieler[state.ctx.currentPlayer].gebäude) {
-        let x = gebäude.koordinaten[0]
-        let y = gebäude.koordinaten[1]
-        for (let zeile = 0; zeile < gebäude.form.length; zeile++) {
-          for (let spalte = 0; spalte < gebäude.form[0].length; spalte++) {
-            if (gebäude.form[zeile][spalte] == 1) {
-              ctx.fillRect(spalte * 50 + x, zeile * 50 + y, 50, 50)
-            }
+      let x = gebäude.koordinaten[0]
+      let y = gebäude.koordinaten[1]
+      for (let zeile = 0; zeile < gebäude.form.length; zeile++) {
+        for (let spalte = 0; spalte < gebäude.form[0].length; spalte++) {
+          if (gebäude.form[zeile][spalte] == 1) {
+            ctx.fillRect(spalte * 50 + x * 50, zeile * 50 + y * 50, 50, 50)
           }
         }
       }
