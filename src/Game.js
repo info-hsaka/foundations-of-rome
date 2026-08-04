@@ -42,7 +42,7 @@ export const Game = {
         gebäude: [
           //1x1 Gebäude
           {
-            koordinaten: [650, 0],
+            koordinaten: [985, 240],
             funktion: "geld",
             form: [[1]],
             gebaut: false,
@@ -51,7 +51,7 @@ export const Game = {
             grafik: [],
           },
           {
-            koordinaten: [725, 0],
+            koordinaten: [1040, 240],
             funktion: "geld",
             form: [[1]],
             gebaut: false,
@@ -60,7 +60,7 @@ export const Game = {
             grafik: [],
           },
           {
-            koordinaten: [650, 75],
+            koordinaten: [650, 240],
             funktion: "pops",
             form: [[1]],
             gebaut: false,
@@ -69,7 +69,7 @@ export const Game = {
             grafik: [],
           },
           {
-            koordinaten: [725, 0],
+            koordinaten: [705, 240],
             funktion: "pops",
             form: [[1]],
             gebaut: false,
@@ -79,7 +79,7 @@ export const Game = {
           },
           //2x1 Gebäude
           {
-            koordinaten: [725, 0],
+            koordinaten: [880, 180],
             funktion: "geld",
             form: [[1, 1]],
             gebaut: false,
@@ -88,7 +88,7 @@ export const Game = {
             grafik: [],
           },
           {
-            koordinaten: [725, 0],
+            koordinaten: [880, 240],
             funktion: "geld",
             form: [[1, 1]],
             gebaut: false,
@@ -97,7 +97,7 @@ export const Game = {
             grafik: [],
           },
           {
-            koordinaten: [725, 0],
+            koordinaten: [760, 180],
             funktion: "pops",
             form: [[1, 1]],
             gebaut: false,
@@ -106,7 +106,7 @@ export const Game = {
             grafik: [],
           },
           {
-            koordinaten: [725, 0],
+            koordinaten: [760, 240],
             funktion: "pops",
             form: [[1, 1]],
             gebaut: false,
