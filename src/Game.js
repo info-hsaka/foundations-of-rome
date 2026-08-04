@@ -231,13 +231,6 @@ export const Game = {
     }
   },
 
-  eraScoring: function eraScoring() {
-    let currentTurn = ctx.turn
-    if (currentTurn == move.G.turn + ctx.numPlayers) {
-      console.log("gut")
-    }
-  },
-
   moves: {
     /** @type {Move} */
     geldNehmen: function geldNehmen(move) {
@@ -248,7 +241,7 @@ export const Game = {
         }
       }
       move.G.spieler[move.playerID].geld += 5 + extraGeld
-      eraScoring()
+      move.eraScoring()
     },
     grundstückKaufen: function grundstückKaufen(move, grundstückPos) {
       let preisliste = [2, 3, 4, 6, 8, 10]
@@ -271,7 +264,7 @@ export const Game = {
         }
         if (move.G.marktplatz.length == 0) {
           move.G.turn = ctx.turn
-          eraScoring()
+          move.eraScoring()
         }
       } else {
         return INVALID_MOVE
@@ -304,8 +297,14 @@ export const Game = {
           if (element.funktion == "pops") {
             move.G.spieler[move.playerID].bevölkerung += element.wert
           }
-          eraScoring()
+          move.eraScoring()
         }
+      }
+    },
+    eraScoring: function eraScoring() {
+      let currentTurn = ctx.turn
+      if (currentTurn == move.G.turn + ctx.numPlayers) {
+        console.log("gut")
       }
     },
   },
@@ -319,7 +318,7 @@ export const Game = {
     onEnd: ({ G, ctx, events, random }) => {},
 
     minMoves: 1,
-    maxMoves: 1,
+    maxMoves: 0,
   },
 
   minPlayers: 2,
