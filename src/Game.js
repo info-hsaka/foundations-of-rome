@@ -184,7 +184,7 @@ export const Game = {
               [1, 1],
             ],
             gebaut: false,
-            wert: 4,
+            wert: 3,
             id: 13,
             sp: 5,
             grafik: [],
