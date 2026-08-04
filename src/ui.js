@@ -39,12 +39,14 @@ function gebäudeMarkieren(gebäude) {
   //durchsichtiger machen
   console.log("blubb")
   ctx.fillStyle = "rgba(255, 255, 255, 0.5)"
-  ctx.fillRect(
-    gebäude.koordinaten[0],
-    gebäude.koordinaten[1],
-    gebäude.form[0].length * 50,
-    gebäude.form.length * 50,
-  )
+
+  for (let zeile = 0; zeile < gebäude.form.length; zeile++) {
+    for (let spalte = 0; spalte < gebäude.form[0].length; spalte++) {
+      if (gebäude.form[zeile][spalte] == 1) {
+        ctx.fillRect(spalte * 50 + x, zeile * 50 + y, 50, 50)
+      }
+    }
+  }
 }
 
 function lagerMalen(state, moves) {
@@ -59,13 +61,13 @@ function lagerMalen(state, moves) {
     for (let zeile = 0; zeile < gebäude.form.length; zeile++) {
       for (let spalte = 0; spalte < gebäude.form[0].length; spalte++) {
         if (gebäude.form[zeile][spalte] == 1) {
+          ctx.fillRect(spalte * 50 + x, zeile * 50 + y, 50, 50)
+          console.log("scheiße")
+          onClick(spalte * 50 + x, zeile * 50 + y, 50, 50, () => {
+            gebäudeMarkieren(gebäude)
+            gebäudeBauenPrüfen(state, moves, gebäude)
+          })
         }
-        ctx.fillRect(zeile * 50 + x, spalte * 50 + y, 50, 50)
-        console.log("scheiße")
-        onClick(zeile * 50 + x, spalte * 50 + y, 50, 50, () => {
-          gebäudeMarkieren(gebäude)
-          gebäudeBauenPrüfen(state, moves, gebäude)
-        })
       }
     }
     //ctx.fillRect(x, y, gebäude.form[0].length * 50, gebäude.form.length * 50)
