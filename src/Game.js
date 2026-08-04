@@ -4,16 +4,16 @@ import { INVALID_MOVE } from "boardgame.io/core"
 /** @type {Game} */
 export const Game = {
   setup: ({ random, ctx }) => {
-    let deck = []
+    let reserveDeck = []
     for (let x = 0; x < 8; x++) {
       for (let y = 0; y < 8; y++) {
-        deck.push([x, y])
+        reserveDeck.push([x, y])
       }
     }
-    deck = random.Shuffle(deck)
+    reserveDeck = random.Shuffle(reserveDeck)
     let marktplatz = []
     for (let i = 0; i < 6; i++) {
-      marktplatz.push(deck.shift())
+      marktplatz.push(reserveDeck.shift())
     }
     console.log(marktplatz)
 
@@ -31,8 +31,8 @@ export const Game = {
     for (let s = 0; s < 3; s++) {
       let grundstücke = []
       for (let i = 0; i < 6; i++) {
-        spielfeld[deck[0][0]][deck[0][1]] = s
-        grundstücke.push(deck.shift())
+        spielfeld[reserveDeck[0][0]][reserveDeck[0][1]] = s
+        grundstücke.push(reserveDeck.shift())
       }
       spieler.push({
         geld: 5 + s,
@@ -212,6 +212,12 @@ export const Game = {
         ],
       })
     }
+
+    let deck = []
+    for (let i = 0; i < reserveDeck / 3; i++) {
+      deck.push(reserveDeck.shift())
+    }
+
     console.log(spieler)
 
     return {
@@ -219,6 +225,7 @@ export const Game = {
       deck: deck,
       spieler: spieler,
       marktplatz: marktplatz,
+      reserveDeck: reserveDeck,
     }
   },
 
@@ -237,6 +244,7 @@ export const Game = {
       let preisliste = [2, 3, 4, 6, 8, 10]
       let preis = preisliste[grundstückPos]
       console.log("preis: " + preis)
+      console.log(move.G.deck)
 
       if (move.G.spieler[move.playerID].geld >= preis) {
         move.G.spieler[move.playerID].grundstücke.push(
