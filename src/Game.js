@@ -214,7 +214,7 @@ export const Game = {
     }
 
     let deck = []
-    for (let i = 0; i < reserveDeck / 3; i++) {
+    for (let i = 0; i < reserveDeck.length / 3; i++) {
       deck.push(reserveDeck.shift())
     }
 
@@ -226,6 +226,7 @@ export const Game = {
       spieler: spieler,
       marktplatz: marktplatz,
       reserveDeck: reserveDeck,
+      era: 1,
     }
   },
 
