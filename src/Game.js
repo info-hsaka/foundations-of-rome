@@ -312,6 +312,17 @@ export const Game = {
       if (G.turn != null) {
         if (currentTurn == G.turn + ctx.numPlayers) {
           console.log("gut")
+
+          for (const spieler of G.spieler) {
+            for (const gebautesGebäude of spieler.gebauteGebäude) {
+              if (gebautesGebäude.funktion == "geld") {
+                spieler.geld += gebautesGebäude.wert
+                if (gebautesGebäude.sp) {
+                  spieler.sp += gebautesGebäude.sp
+                }
+              }
+            }
+          }
         }
       }
     },
