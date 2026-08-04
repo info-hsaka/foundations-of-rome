@@ -230,7 +230,12 @@ export const Game = {
     }
   },
 
-  eraScoring: function eraScoring() {},
+  eraScoring: function eraScoring(turn) {
+    let currentTurn = ctx.turn
+    if (currentTurn == turn + ctx.numPlayers) {
+      console.log("gut")
+    }
+  },
 
   moves: {
     /** @type {Move} */
@@ -263,7 +268,8 @@ export const Game = {
           move.G.marktplatz.push(move.G.deck.shift())
         }
         if (move.G.marktplatz.length == 0) {
-          eraScoring()
+          let turn = ctx.turn
+          eraScoring(turn)
         }
       } else {
         return INVALID_MOVE
