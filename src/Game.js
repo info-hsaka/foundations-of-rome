@@ -127,7 +127,10 @@ export const Game = {
           {
             koordinaten: [650, 125],
             funktion: "pops",
-            form: [[1], [1, 1]],
+            form: [
+              [1, 0],
+              [1, 1],
+            ],
             gebaut: false,
             wert: 4,
             id: 9,
