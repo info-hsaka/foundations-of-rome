@@ -227,12 +227,13 @@ export const Game = {
       marktplatz: marktplatz,
       reserveDeck: reserveDeck,
       era: 1,
+      turn: 0,
     }
   },
 
-  eraScoring: function eraScoring(turn) {
+  eraScoring: function eraScoring() {
     let currentTurn = ctx.turn
-    if (currentTurn == turn + ctx.numPlayers) {
+    if (currentTurn == move.G.turn + ctx.numPlayers) {
       console.log("gut")
     }
   },
@@ -246,7 +247,8 @@ export const Game = {
           extraGeld += gebäude.wert
         }
       }
-      move.G.spieler[move.playerID].geld += 5 + extraGeld // noch nicht in Praxis versucht
+      move.G.spieler[move.playerID].geld += 5 + extraGeld
+      eraScoring()
     },
     grundstückKaufen: function grundstückKaufen(move, grundstückPos) {
       let preisliste = [2, 3, 4, 6, 8, 10]
@@ -268,8 +270,8 @@ export const Game = {
           move.G.marktplatz.push(move.G.deck.shift())
         }
         if (move.G.marktplatz.length == 0) {
-          let turn = ctx.turn
-          eraScoring(turn)
+          move.G.turn = ctx.turn
+          eraScoring()
         }
       } else {
         return INVALID_MOVE
@@ -302,6 +304,7 @@ export const Game = {
           if (element.funktion == "pops") {
             move.G.spieler[move.playerID].bevölkerung += element.wert
           }
+          eraScoring()
         }
       }
     },
