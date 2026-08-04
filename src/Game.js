@@ -227,7 +227,7 @@ export const Game = {
       marktplatz: marktplatz,
       reserveDeck: reserveDeck,
       era: 1,
-      turn: 0,
+      turn: null,
     }
   },
 
@@ -308,8 +308,10 @@ export const Game = {
     onBegin: ({ G, ctx, events, random }) => {},
     onEnd: ({ G, ctx, events, random }) => {
       let currentTurn = ctx.turn
-      if (currentTurn == G.turn + ctx.numPlayers) {
-        console.log("gut")
+      if (G.turn != null) {
+        if (currentTurn == G.turn + ctx.numPlayers) {
+          console.log("gut")
+        }
       }
     },
 
