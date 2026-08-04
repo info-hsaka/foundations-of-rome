@@ -230,6 +230,8 @@ export const Game = {
     }
   },
 
+  eraScoring: function eraScoring() {},
+
   moves: {
     /** @type {Move} */
     geldNehmen: function geldNehmen(move) {
@@ -259,6 +261,9 @@ export const Game = {
         move.G.marktplatz.splice(grundstückPos, 1)
         if (move.G.deck.length != 0) {
           move.G.marktplatz.push(move.G.deck.shift())
+        }
+        if (move.G.marktplatz.length == 0) {
+          eraScoring()
         }
       } else {
         return INVALID_MOVE
