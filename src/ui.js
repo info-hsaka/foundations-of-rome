@@ -261,6 +261,4 @@ export function draw(
     582,
     125,
   )
-  ctx.fillStyle = "black"
-  ctx.fillRect(0, 0, 20000, 2000)
 }
