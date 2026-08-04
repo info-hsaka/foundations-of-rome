@@ -260,7 +260,7 @@ export function draw(
     582,
     125,
   )
-  if (state.ctx.currentPlayer == "0") {
+  /* if (state.ctx.currentPlayer == "0") {
     ctx.fillStyle = "rgb(255, 182, 36)"
     ctx.fillRect(538, 100, 88, 50)
   } else if (state.ctx.currentPlayer == "1") {
@@ -273,6 +273,6 @@ export function draw(
     ctx.fillStyle = "rgb(111, 169, 187)"
     ctx.fillRect(538, 100, 88, 50)
   }
-
-  ctx.arc(113, 200) //Siegpunkte
+*/
+  //ctx.arc(113, 200) //Siegpunkte
 }
