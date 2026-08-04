@@ -56,9 +56,13 @@ function lagerMalen(state, moves) {
     } else if (gebäude.funktion == "pops") {
       ctx.fillStyle = "yellow"
     }
-    for (const feld of gebäude.form) {
+    for (let zeile = 0; zeile < gebäude.form.length; zeile++) {
+      for (let spalte = 0; spalte < gebäude.form[0].length; spalte++) {
+        ctx.fillStyle = "green"
+        ctx.fillRect((x + zeile) * 50, (y + spalte) * 50, 50, 50)
+      }
     }
-    ctx.fillRect(x, y, gebäude.form[0].length * 50, gebäude.form.length * 50)
+    //ctx.fillRect(x, y, gebäude.form[0].length * 50, gebäude.form.length * 50)
     onClick(x, y, gebäude.form[0].length * 50, gebäude.form.length * 50, () => {
       //gebäude.angeclickt = true
       gebäudeMarkieren(gebäude)
