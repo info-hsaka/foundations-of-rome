@@ -37,6 +37,7 @@ export const Game = {
       spieler.push({
         geld: 5 + s,
         bevölkerung: 0,
+        sp: 0,
         grundstücke: grundstücke,
         gebauteGebäude: [],
         gebäude: [
