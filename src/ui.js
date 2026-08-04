@@ -39,7 +39,8 @@ function gebäudeMarkieren(gebäude) {
   //durchsichtiger machen
   console.log("blubb")
   ctx.fillStyle = "rgba(255, 255, 255, 0.5)"
-
+  let x = gebäude.koordinaten[0]
+  let y = gebäude.koordinaten[1]
   for (let zeile = 0; zeile < gebäude.form.length; zeile++) {
     for (let spalte = 0; spalte < gebäude.form[0].length; spalte++) {
       if (gebäude.form[zeile][spalte] == 1) {
@@ -79,12 +80,17 @@ function gebäudeAnzeigen(state) {
   for (const spieler of state.G.spieler) {
     for (const gebäude of spieler.gebauteGebäude) {
       ctx.fillStyle = "red"
-      ctx.fillRect(
-        gebäude.koordinaten[0] * 50,
-        gebäude.koordinaten[1] * 50,
-        gebäude.form[0].length * 50,
-        gebäude.form.length * 50,
-      )
+      for (const gebäude of state.G.spieler[state.ctx.currentPlayer].gebäude) {
+        let x = gebäude.koordinaten[0]
+        let y = gebäude.koordinaten[1]
+        for (let zeile = 0; zeile < gebäude.form.length; zeile++) {
+          for (let spalte = 0; spalte < gebäude.form[0].length; spalte++) {
+            if (gebäude.form[zeile][spalte] == 1) {
+              ctx.fillRect(spalte * 50 + x, zeile * 50 + y, 50, 50)
+            }
+          }
+        }
+      }
     }
   }
 }
