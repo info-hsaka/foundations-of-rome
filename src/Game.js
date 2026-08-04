@@ -41,7 +41,7 @@ export const Game = {
         gebauteGebäude: [],
         gebäude: [
           //1x1 Gebäude
-          /*{
+          {
             koordinaten: [650, 0],
             funktion: "geld",
             form: [[1]],
@@ -113,12 +113,15 @@ export const Game = {
             wert: 2,
             id: 7,
             grafik: [],
-          },*/
+          },
           //L-Gebäude
           {
             koordinaten: [725, 0],
             funktion: "geld",
-            form: [[1], [1, 1]],
+            form: [
+              [1, 0],
+              [1, 1],
+            ],
             gebaut: false,
             wert: 2,
             id: 8,

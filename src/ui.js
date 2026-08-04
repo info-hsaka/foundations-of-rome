@@ -56,6 +56,8 @@ function lagerMalen(state, moves) {
     } else if (gebäude.funktion == "pops") {
       ctx.fillStyle = "yellow"
     }
+    for (const feld of gebäude.form) {
+    }
     ctx.fillRect(x, y, gebäude.form[0].length * 50, gebäude.form.length * 50)
     onClick(x, y, gebäude.form[0].length * 50, gebäude.form.length * 50, () => {
       //gebäude.angeclickt = true
