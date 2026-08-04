@@ -116,7 +116,7 @@ export const Game = {
           },
           //L-Gebäude
           {
-            koordinaten: [1080, 130],
+            koordinaten: [990, 130],
             funktion: "geld",
             form: [
               [0, 1],
@@ -128,7 +128,7 @@ export const Game = {
             grafik: [],
           },
           {
-            koordinaten: [660, 130],
+            koordinaten: [650, 130],
             funktion: "pops",
             form: [
               [1, 0],
@@ -141,7 +141,7 @@ export const Game = {
           },
           //3x1 Gebäude
           {
-            koordinaten: [920, 120],
+            koordinaten: [880, 120],
             funktion: "geld",
             form: [[1, 1, 1]],
             gebaut: false,
@@ -150,7 +150,7 @@ export const Game = {
             grafik: [],
           },
           {
-            koordinaten: [760, 120],
+            koordinaten: [710, 120],
             funktion: "pops",
             form: [[1, 1, 1]],
             gebaut: false,
