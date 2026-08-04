@@ -162,11 +162,7 @@ export function draw(
           ctx.strokeRect(x + 4, y + 4, feldGröße - 8, feldGröße - 8)
 
           // Einträge Marktplatz
-        } /*else {
-          ctx.lineWidth = "1"
-          ctx.strokeStyle = "black"
-          ctx.strokeRect(x, y, feldGröße, feldGröße)
-        }*/
+        }
       }
       for (let i = 0; i < state.G.marktplatz.length; i++) {
         if (
