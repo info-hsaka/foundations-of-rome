@@ -60,14 +60,16 @@ function lagerMalen(state, moves) {
       for (let spalte = 0; spalte < gebäude.form[0].length; spalte++) {
         ctx.fillStyle = "green"
         ctx.fillRect((x + zeile) * 50, (y + spalte) * 50, 50, 50)
+        console.log("scheiße")
+        onClick((x + zeile) * 50, (y + spalte) * 50, 50, 50, () => {
+          gebäudeMarkieren(gebäude)
+          gebäudeBauenPrüfen(state, moves, gebäude)
+        })
       }
     }
     //ctx.fillRect(x, y, gebäude.form[0].length * 50, gebäude.form.length * 50)
-    onClick(x, y, gebäude.form[0].length * 50, gebäude.form.length * 50, () => {
-      //gebäude.angeclickt = true
-      gebäudeMarkieren(gebäude)
-      gebäudeBauenPrüfen(state, moves, gebäude)
-    })
+    //onClick(x, y, gebäude.form[0].length * 50, gebäude.form.length * 50, () => {
+    //gebäude.angeclickt = true
   }
 }
 function gebäudeAnzeigen(state) {
