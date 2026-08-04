@@ -148,6 +148,9 @@ export function draw(
       let buchstabe = ["A", "B", "C", "D", "E", "F", "G", "H"]
       let text = buchstabe[spalte] + (zeile + 1)
       ctx.fillText(text, x + 25, y + 25)
+      ctx.lineWidth = "1"
+      ctx.strokeStyle = "black"
+      ctx.strokeRect(x, y, feldGröße, feldGröße)
       for (let i = 0; i < state.G.marktplatz.length; i++) {
         if (
           spalte == state.G.marktplatz[i][0] &&
@@ -159,11 +162,11 @@ export function draw(
           ctx.strokeRect(x + 4, y + 4, feldGröße - 8, feldGröße - 8)
 
           // Einträge Marktplatz
-        } else {
+        } /*else {
           ctx.lineWidth = "1"
           ctx.strokeStyle = "black"
           ctx.strokeRect(x, y, feldGröße, feldGröße)
-        }
+        }*/
       }
       for (let i = 0; i < state.G.marktplatz.length; i++) {
         if (

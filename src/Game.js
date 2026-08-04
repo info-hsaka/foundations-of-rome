@@ -262,7 +262,8 @@ export const Game = {
           move.G.marktplatz.push(move.G.deck.shift())
         }
         if (move.G.marktplatz.length == 0) {
-          move.G.turn = move.turn
+          move.G.turn = move.ctx.turn
+          console.log(move.G.turn)
         }
       } else {
         return INVALID_MOVE
