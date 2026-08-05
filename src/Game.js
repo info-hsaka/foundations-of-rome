@@ -371,7 +371,7 @@ export const Game = {
   endIf: ({ G, ctx, random }) => {
     if (G.era == 4) {
       let spTracker = []
-      for (let i = 0; i < G.spieler; i++) {
+      for (let i = 0; i < G.spieler.length; i++) {
         spTracker.push(G.spieler[i].sp)
       }
       let spSortiert = [...new Set(spTracker)]
@@ -383,7 +383,11 @@ export const Game = {
         platzierung.push(spSortiert.indexOf(spTracker[i]))
       }
       console.log(platzierung)
-      return platzierung
+      return
+      {
+        winner: platzierung[0]
+        platzierung: platzierung
+      }
     }
   },
 }
