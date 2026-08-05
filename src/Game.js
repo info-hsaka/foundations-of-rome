@@ -322,7 +322,8 @@ export const Game = {
                 }
               }
             }
-          }
+          if (spieler.bevölkerung > 0)
+
         }
       }
     },
