@@ -336,13 +336,14 @@ export const Game = {
           for (let i = 0; i < popTracker.length; i++) {
             if (popTracker[i] > 0) {
               if (popTracker[i] == popSortiert[0]) {
-                G.spieler[i].sp += popTracker[i] + 4
+                G.spieler[i].sp += popTracker[i] + 1 + G.era * 3
               } else {
                 G.spieler[i].sp +=
                   popSortiert[popSortiert.indexOf(popTracker[i]) - 1]
               }
             }
           }
+          G.era++
           for (let i = 0; i < G.reserveDeckEinDrittel; i++) {
             if (G.reserveDeck.length > 0) {
               G.deck.push(G.reserveDeck.shift())
