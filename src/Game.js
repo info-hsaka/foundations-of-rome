@@ -380,8 +380,9 @@ export const Game = {
       let platzierung = []
       for (let i = 0; i < spTracker.length; i++) {
         platzierung.push(spSortiert.indexOf(spTracker[i]))
-        console.log(platzierung)
       }
+      console.log(platzierung)
+      return platzierung
     }
   },
 }
