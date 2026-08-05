@@ -312,7 +312,7 @@ export const Game = {
       if (G.turn != null) {
         if (currentTurn == G.turn + ctx.numPlayers) {
           console.log("gut")
-
+          let popTracker = []
           for (const spieler of G.spieler) {
             for (const gebautesGebäude of spieler.gebauteGebäude) {
               if (gebautesGebäude.funktion == "geld") {
@@ -322,8 +322,11 @@ export const Game = {
                 }
               }
             }
-          if (spieler.bevölkerung > 0)
 
+            popTracker.push(spieler.Bevölkerung)
+          }
+          let popSortiert = popTracker.sort((a, b) => a - b)
+          console.log(popSortiert)
         }
       }
     },
