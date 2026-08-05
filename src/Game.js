@@ -368,5 +368,20 @@ export const Game = {
 
   disableUndo: true,
 
-  endIf: ({ G, ctx, random }) => {},
+  endIf: ({ G, ctx, random }) => {
+    if (G.era == 4) {
+      let spTracker = []
+      for (let i = 0; i < G.spieler; i++) {
+        spTracker.push(G.spieler[i].sp)
+      }
+      let spSortiert = [...spTracker]
+      spSortiert = spSortiert.sort((a, b) => a - b)
+      spSortiert = spSortiert.reverse()
+      let platzierung = []
+      for (let i = 0; i < spTracker.length; i++) {
+        platzierung.push(spSortiert.indexOf(spTracker[i]))
+        console.log(platzierung)
+      }
+    }
+  },
 }
