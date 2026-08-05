@@ -326,7 +326,9 @@ export const Game = {
             popTracker.push(spieler.bevölkerung)
           }
           let popSortiert = popTracker.sort((a, b) => a - b)
+
           console.log(popSortiert)
+          for (let i = 0; i < popTracker.length; i++) {}
         }
       }
     },
