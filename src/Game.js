@@ -333,11 +333,13 @@ export const Game = {
 
           console.log(popTracker, popSortiert)
           for (let i = 0; i < popTracker.length; i++) {
-            if (popTracker[i] == popSortiert[0]) {
-              G.spieler[i].sp += popTracker[i] + 4
-            } else {
-              G.spieler[i].sp +=
-                popSortiert[popSortiert.indexOf(popTracker[i]) - 1]
+            if (popTracker[i] > 0) {
+              if (popTracker[i] == popSortiert[0]) {
+                G.spieler[i].sp += popTracker[i] + 4
+              } else {
+                G.spieler[i].sp +=
+                  popSortiert[popSortiert.indexOf(popTracker[i]) - 1]
+              }
             }
           }
         }
