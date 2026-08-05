@@ -374,10 +374,11 @@ export const Game = {
       for (let i = 0; i < G.spieler; i++) {
         spTracker.push(G.spieler[i].sp)
       }
-      let spSortiert = [...spTracker]
+      let spSortiert = [...new Set(spTracker)]
       spSortiert = spSortiert.sort((a, b) => a - b)
       spSortiert = spSortiert.reverse()
       let platzierung = []
+      console.log(spTracker)
       for (let i = 0; i < spTracker.length; i++) {
         platzierung.push(spSortiert.indexOf(spTracker[i]))
       }
