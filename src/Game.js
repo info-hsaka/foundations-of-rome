@@ -212,7 +212,7 @@ export const Game = {
         ],
       })
     }
-    const reserveDeckEinDrittel = reserveDeck.length / 3
+    let reserveDeckEinDrittel = reserveDeck.length / 3
     let deck = []
     for (let i = 0; i < reserveDeckEinDrittel; i++) {
       deck.push(reserveDeck.shift())
@@ -342,9 +342,10 @@ export const Game = {
                   popSortiert[popSortiert.indexOf(popTracker[i]) - 1]
               }
             }
-          }
-          for (let i = 0; i < G.reserveDeckEinDrittel; i++) {
-            G.deck.push(G.reserveDeck.shift())
+            for (let i = 0; i < G.reserveDeckEinDrittel; i++) {
+              G.deck.push(G.reserveDeck.shift())
+              console.log("schwamm")
+            }
           }
         }
       }
