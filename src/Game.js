@@ -347,6 +347,9 @@ export const Game = {
             G.deck.push(G.reserveDeck.shift())
             console.log("schwamm")
           }
+          for (let i = 0; i < 6; i++) {
+            G.marktplatz.push(G.deck.shift())
+          }
         }
       }
     },
