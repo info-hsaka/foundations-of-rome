@@ -351,7 +351,9 @@ export const Game = {
             }
           }
           for (let i = 0; i < 6; i++) {
-            G.marktplatz.push(G.deck.shift())
+            if (G.deck.length > 0) {
+              G.marktplatz.push(G.deck.shift())
+            }
           }
         }
       }
