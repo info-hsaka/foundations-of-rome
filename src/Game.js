@@ -344,8 +344,10 @@ export const Game = {
             }
           }
           for (let i = 0; i < G.reserveDeckEinDrittel; i++) {
-            G.deck.push(G.reserveDeck.shift())
-            console.log("schwamm")
+            if (G.reserveDeck.length > 0) {
+              G.deck.push(G.reserveDeck.shift())
+              console.log("schwamm")
+            }
           }
           for (let i = 0; i < 6; i++) {
             G.marktplatz.push(G.deck.shift())
