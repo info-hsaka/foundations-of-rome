@@ -326,7 +326,8 @@ export const Game = {
             popTracker.push(spieler.bevölkerung)
             //console.log(popTracker)
           }
-          let popSortiert = popTracker
+
+          let popSortiert = [...popTracker]
           popSortiert = popSortiert.sort((a, b) => a - b)
           popSortiert = popSortiert.reverse()
 
