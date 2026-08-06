@@ -271,9 +271,10 @@ export function draw(
       ctx.fillStyle = "rgb(111, 169, 187)"
     }
     ctx.beginPath()
-    ctx.arc(525, 200 + 120 * i, 30, 0, 2 * Math.PI) //Siegpunkte
+    ctx.arc(525, 225 + 100 * i, 40, 0, 2 * Math.PI) //Siegpunkte
     ctx.fill()
-    ctx.fillText
+    ctx.fillStyle = "black"
+    ctx.fillText(state.G.spieler[i].sp + " SP", 525, 225 + 100 * i)
   }
 
   if (state.ctx.gameover != null) {
