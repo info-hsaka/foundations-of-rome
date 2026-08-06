@@ -2,7 +2,7 @@
 /** @import { Game } from "./Game" */
 
 import { INVALID_MOVE } from "boardgame.io/src/core/constants"
-import { onClick } from "./canvas"
+import { drawPicture, onClick } from "./canvas"
 
 const canvas = document.getElementById("canvas")
 const ctx = canvas.getContext("2d")
@@ -78,26 +78,16 @@ function lagerMalen(state, moves) {
 function gebäudeAnzeigen(state) {
   for (const spieler of state.G.spieler) {
     for (const gebäude of spieler.gebauteGebäude) {
-      ctx.fillStyle = "red"
       let x = gebäude.koordinaten[0]
       let y = gebäude.koordinaten[1]
-      for (let zeile = 0; zeile < gebäude.form.length; zeile++) {
+      /*for (let zeile = 0; zeile < gebäude.form.length; zeile++) {
         for (let spalte = 0; spalte < gebäude.form[0].length; spalte++) {
-          if (gebäude.form[zeile][spalte] == 1) {
-            //img, spieler farbe\geb-id.png
-            if (state.ctx.currentPlayer == "0") {
-            }
-            let name = ctx.fillRect(
-              Img,
-              name,
-              spalte * 50 + x * 50,
-              zeile * 50 + y * 50,
-              50,
-              50,
-            )
-          }
-        }
-      }
+          if (gebäude.form[zeile][spalte] == 1) {*/
+      //img, spieler farbe\geb-id.png
+
+      let name = "" + spieler.farbe + "\\geb-" + gebäude.id + ".png"
+      console.log(name)
+      drawPicture(state, name, x * 50, y * 50, 50, 50)
     }
   }
 }
