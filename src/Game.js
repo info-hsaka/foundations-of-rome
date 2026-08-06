@@ -369,6 +369,7 @@ export const Game = {
         if (gebäudeid == gebäude.id) {
           gebäude.form = gebäude.rotation[irot % gebäude.rotation.length]
           gebäude.numrot++
+          gebäude.numrot = gebäude.numrot % gebäude.rotation.length
         }
       }
     },

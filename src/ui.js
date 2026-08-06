@@ -111,6 +111,7 @@ function gebäudeAnzeigen(state) {
         y * 50,
         50 * gebäude.form[0].length,
         50 * gebäude.form.length,
+        90 * gebäude.numrot,
       )
     }
   }
