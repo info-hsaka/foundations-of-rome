@@ -49,7 +49,7 @@ export const Game = {
             gebaut: false,
             wert: 1,
             id: 0,
-            grafik: "src\assets\rot\geb-0.png",
+            grafik: "rot\geb-0.png",
           },
           {
             koordinaten: [1040, 240],
