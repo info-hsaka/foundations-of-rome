@@ -29,7 +29,7 @@ export const Game = {
       [null, null, null, null, null, null, null, null],
     ]
 
-    let farbenliste = ["gelb", "grün", "lila", "blau", "rot"]
+    let farbenliste = ["gelb", "gruen", "lila", "blau", "rot"]
 
     for (let s = 0; s < 3; s++) {
       let grundstücke = []
