@@ -278,5 +278,7 @@ export function draw(
   if (state.ctx.gameover != null) {
     ctx.fillStyle = "white"
     ctx.fillRect(0, 0, 20000, 20000)
+    ctx.fillStyle = "black"
+    ctx.fillText(state.ctx.gameover.platzierung, 200, 300)
   }
 }
