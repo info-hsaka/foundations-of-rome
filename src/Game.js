@@ -290,7 +290,7 @@ export const Game = {
         }
       }
       move.G.spieler[move.playerID].geld += 5 + extraGeld
-      return
+      move.events.endTurn()
     },
     grundstückKaufen: function grundstückKaufen(move, grundstückPos) {
       let preisliste = [2, 3, 4, 6, 8, 10]
@@ -318,7 +318,7 @@ export const Game = {
       } else {
         return INVALID_MOVE
       }
-      return
+      move.events.endTurn()
     },
     //noch nicht fertig
     gebäudeBauen: function gebäudeBauen(move, gebäude, pos) {
@@ -349,7 +349,11 @@ export const Game = {
           }
         }
       }
-      return
+      move.events.endTurn()
+    },
+
+    rotieren: function rotieren(move, irot) {
+      gebäude.form = gebäude.rotation[irot % gebäude.rotation.length]
     },
   },
 

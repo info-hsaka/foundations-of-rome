@@ -35,7 +35,7 @@ function felderMalen(state) {
   }
 }
 
-function gebäudeMarkieren(gebäude) {
+function gebäudeMarkieren(gebäude, move) {
   //durchsichtiger machen
   console.log("blubb")
   let x = gebäude.koordinaten[0]
@@ -50,7 +50,6 @@ function gebäudeMarkieren(gebäude) {
         let irot = 0
         onClick(845, 300, 50, 50, () => {
           irot++
-          gebäude.form = gebäude.rotation[irot % gebäude.rotation.length]
         })
       }
     }
