@@ -279,6 +279,10 @@ export function draw(
     ctx.fillStyle = "white"
     ctx.fillRect(0, 0, 20000, 20000)
     ctx.fillStyle = "black"
-    ctx.fillText(state.ctx.gameover.platzierung, 200, 300)
+    let text
+    for (let i = 0; i < state.ctx.gameover.platzierung; i++) {
+      text += i + 1 + ". Platz: Spieler " + state.ctx.gameover[i] + "/n"
+    }
+    ctx.fillText(text, 200, 300)
   }
 }
