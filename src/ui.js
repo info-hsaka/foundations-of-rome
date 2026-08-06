@@ -54,27 +54,35 @@ function lagerMalen(state, moves) {
   for (const gebäude of state.G.spieler[state.ctx.currentPlayer].gebäude) {
     let x = gebäude.koordinaten[0]
     let y = gebäude.koordinaten[1]
-    if (gebäude.funktion == "geld") {
-      ctx.fillStyle = "green"
-    } else if (gebäude.funktion == "pops") {
-      ctx.fillStyle = "yellow"
-    }
+
+    let name =
+      "" +
+      state.G.spieler[state.ctx.currentPlayer].farbe +
+      "\\geb-" +
+      gebäude.id +
+      ".png"
+    drawPicture(
+      ctx,
+      name,
+      x * 50,
+      y * 50,
+      50 * gebäude.form[0].length,
+      50 * gebäude.form.length,
+    )
     for (let zeile = 0; zeile < gebäude.form.length; zeile++) {
       for (let spalte = 0; spalte < gebäude.form[0].length; spalte++) {
-        if (gebäude.form[zeile][spalte] == 1) {
-          ctx.fillRect(spalte * 50 + x, zeile * 50 + y, 50, 50)
-          onClick(spalte * 50 + x, zeile * 50 + y, 50, 50, () => {
-            gebäudeMarkieren(gebäude)
-            gebäudeBauenPrüfen(state, moves, gebäude)
-          })
-        }
+        onClick(spalte * 50 + x, zeile * 50 + y, 50, 50, () => {
+          gebäudeMarkieren(gebäude)
+          gebäudeBauenPrüfen(state, moves, gebäude)
+        })
       }
     }
-    //ctx.fillRect(x, y, gebäude.form[0].length * 50, gebäude.form.length * 50)
-    //onClick(x, y, gebäude.form[0].length * 50, gebäude.form.length * 50, () => {
-    //gebäude.angeclickt = true
   }
 }
+//ctx.fillRect(x, y, gebäude.form[0].length * 50, gebäude.form.length * 50)
+//onClick(x, y, gebäude.form[0].length * 50, gebäude.form.length * 50, () => {
+//gebäude.angeclickt = true
+
 function gebäudeAnzeigen(state) {
   for (const spieler of state.G.spieler) {
     for (const gebäude of spieler.gebauteGebäude) {
