@@ -260,17 +260,22 @@ export function draw(
     582,
     125,
   )
-  if (state.ctx.currentPlayer == "0") {
-    ctx.fillStyle = "rgb(255, 182, 36)"
-  } else if (state.ctx.currentPlayer == "1") {
-    ctx.fillStyle = "rgb(107, 133, 74)"
-  } else if (state.ctx.currentPlayer == "2") {
-    ctx.fillStyle = "rgb(102, 60, 121)"
-  } else if (state.ctx.currentPlayer == "3") {
-    ctx.fillStyle = "rgb(111, 169, 187)"
+  for (let i = 0; i < state.G.spieler.length; i++) {
+    if (i == "0") {
+      ctx.fillStyle = "rgb(255, 182, 36)"
+    } else if (i == "1") {
+      ctx.fillStyle = "rgb(107, 133, 74)"
+    } else if (i == "2") {
+      ctx.fillStyle = "rgb(102, 60, 121)"
+    } else if (i == "3") {
+      ctx.fillStyle = "rgb(111, 169, 187)"
+    }
+    ctx.beginPath()
+    ctx.arc(525, 200 + 120 * i, 30, 0, 2 * Math.PI) //Siegpunkte
+    ctx.fill()
+    ctx.fillText
   }
-  ctx.fillStyle = "black"
-  ctx.arc(525, 250, 50, 0, 2 * Math.PI) //Siegpunkte
+
   if (state.ctx.gameover != null) {
     ctx.fillStyle = "white"
     ctx.fillRect(0, 0, 20000, 20000)
