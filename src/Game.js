@@ -135,10 +135,6 @@ export const Game = {
             ],
             rotation: [
               [
-                [0, 1],
-                [1, 1],
-              ],
-              [
                 [1, 0],
                 [1, 1],
               ],
@@ -149,6 +145,10 @@ export const Game = {
               [
                 [1, 1],
                 [0, 1],
+              ],
+              [
+                [0, 1],
+                [1, 1],
               ],
             ],
             gebaut: false,
@@ -166,10 +166,6 @@ export const Game = {
             ],
             rotation: [
               [
-                [0, 1],
-                [1, 1],
-              ],
-              [
                 [1, 0],
                 [1, 1],
               ],
@@ -180,6 +176,10 @@ export const Game = {
               [
                 [1, 1],
                 [0, 1],
+              ],
+              [
+                [0, 1],
+                [1, 1],
               ],
             ],
             gebaut: false,
@@ -356,6 +356,7 @@ export const Game = {
       for (const gebäude of move.G.spieler[move.playerID].gebäude) {
         if (gebäudeid == gebäude.id) {
           gebäude.form = gebäude.rotation[irot % gebäude.rotation.length]
+          console.log("drehen")
         }
       }
     },
