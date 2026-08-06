@@ -94,7 +94,6 @@ function gebäudeAnzeigen(state) {
       //img, spieler farbe\geb-id.png
 
       let name = "" + spieler.farbe + "\\geb-" + gebäude.id + ".png"
-      console.log(name)
       drawPicture(
         ctx,
         name,
