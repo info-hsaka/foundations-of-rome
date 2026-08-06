@@ -277,6 +277,6 @@ export function draw(
   //ctx.arc(113, 200) //Siegpunkte
   if (state.ctx.gameover != null) {
     ctx.fillStyle = "white"
-    ctx.fill(0, 0, 20000, 20000)
+    ctx.fillRect(0, 0, 20000, 20000)
   }
 }
