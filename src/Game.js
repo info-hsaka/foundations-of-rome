@@ -367,9 +367,9 @@ export const Game = {
     rotieren: function rotieren(move, irot, gebäudeid) {
       for (const gebäude of move.G.spieler[move.playerID].gebäude) {
         if (gebäudeid == gebäude.id) {
-          gebäude.form = gebäude.rotation[irot % gebäude.rotation.length]
           gebäude.numrot++
           gebäude.numrot = gebäude.numrot % gebäude.rotation.length
+          gebäude.form = gebäude.rotation[gebäude.numrot]
         }
       }
     },
