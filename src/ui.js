@@ -262,19 +262,15 @@ export function draw(
   )
   if (state.ctx.currentPlayer == "0") {
     ctx.fillStyle = "rgb(255, 182, 36)"
-    ctx.fillRect(538, 100, 88, 50)
   } else if (state.ctx.currentPlayer == "1") {
     ctx.fillStyle = "rgb(107, 133, 74)"
-    ctx.fillRect(538, 100, 88, 50)
   } else if (state.ctx.currentPlayer == "2") {
     ctx.fillStyle = "rgb(102, 60, 121)"
-    ctx.fillRect(538, 100, 88, 50)
   } else if (state.ctx.currentPlayer == "3") {
     ctx.fillStyle = "rgb(111, 169, 187)"
-    ctx.fillRect(538, 100, 88, 50)
   }
-
-  ctx.arc(113, 200, 30, 0, 2 * Math.PI) //Siegpunkte
+  ctx.fillStyle = "black"
+  ctx.arc(525, 250, 50, 0, 2 * Math.PI) //Siegpunkte
   if (state.ctx.gameover != null) {
     ctx.fillStyle = "white"
     ctx.fillRect(0, 0, 20000, 20000)
