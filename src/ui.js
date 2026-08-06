@@ -45,6 +45,7 @@ function gebäudeMarkieren(gebäude) {
     for (let spalte = 0; spalte < gebäude.form[0].length; spalte++) {
       if (gebäude.form[zeile][spalte] == 1) {
         ctx.fillRect(spalte * 50 + x, zeile * 50 + y, 50, 50)
+        ctx.fillRect(737)
       }
     }
   }
