@@ -260,7 +260,7 @@ export function draw(
     582,
     125,
   )
-  /* if (state.ctx.currentPlayer == "0") {
+  if (state.ctx.currentPlayer == "0") {
     ctx.fillStyle = "rgb(255, 182, 36)"
     ctx.fillRect(538, 100, 88, 50)
   } else if (state.ctx.currentPlayer == "1") {
@@ -273,18 +273,20 @@ export function draw(
     ctx.fillStyle = "rgb(111, 169, 187)"
     ctx.fillRect(538, 100, 88, 50)
   }
-*/
-  //ctx.arc(113, 200) //Siegpunkte
+
+  ctx.arc(113, 200, 30, 0, 2 * Math.PI) //Siegpunkte
   if (state.ctx.gameover != null) {
     ctx.fillStyle = "white"
     ctx.fillRect(0, 0, 20000, 20000)
     ctx.fillStyle = "black"
 
     for (let i = 0; i < state.ctx.gameover.platzierung.length; i++) {
-      let text
+      let text = ""
       let platz = i + 1
-      text += platz + ". Platz: Spieler " + state.ctx.gameover.platzierung[i]
-      ctx.fillText(text, 200, 300 + 40 * i)
+      ctx.font = "30px Arial"
+      text +=
+        platz + ". Platz: Spieler " + (state.ctx.gameover.platzierung[i] + 1)
+      ctx.fillText(text, 775, 200 + 50 * i)
     }
   }
 }
