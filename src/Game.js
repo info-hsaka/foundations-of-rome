@@ -28,6 +28,9 @@ export const Game = {
       [null, null, null, null, null, null, null, null],
       [null, null, null, null, null, null, null, null],
     ]
+
+    let farbenliste = ["gelb", "grün", "lila", "blau", "rot"]
+
     for (let s = 0; s < 3; s++) {
       let grundstücke = []
       for (let i = 0; i < 6; i++) {
@@ -38,6 +41,7 @@ export const Game = {
         geld: 5 + s,
         bevölkerung: 0,
         sp: 0,
+        farbe: farbenliste[s],
         grundstücke: grundstücke,
         gebauteGebäude: [],
         gebäude: [

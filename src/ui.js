@@ -85,16 +85,16 @@ function gebäudeAnzeigen(state) {
         for (let spalte = 0; spalte < gebäude.form[0].length; spalte++) {
           if (gebäude.form[zeile][spalte] == 1) {
             //img, spieler farbe\geb-id.png
-            let name =
-              "img, " +
-              ctx.fillRect(
-                Img,
-                name,
-                spalte * 50 + x * 50,
-                zeile * 50 + y * 50,
-                50,
-                50,
-              )
+            if (state.ctx.currentPlayer == "0") {
+            }
+            let name = ctx.fillRect(
+              Img,
+              name,
+              spalte * 50 + x * 50,
+              zeile * 50 + y * 50,
+              50,
+              50,
+            )
           }
         }
       }
