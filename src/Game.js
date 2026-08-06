@@ -290,6 +290,7 @@ export const Game = {
         }
       }
       move.G.spieler[move.playerID].geld += 5 + extraGeld
+      return
     },
     grundstückKaufen: function grundstückKaufen(move, grundstückPos) {
       let preisliste = [2, 3, 4, 6, 8, 10]
@@ -317,6 +318,7 @@ export const Game = {
       } else {
         return INVALID_MOVE
       }
+      return
     },
     //noch nicht fertig
     gebäudeBauen: function gebäudeBauen(move, gebäude, pos) {
@@ -347,6 +349,7 @@ export const Game = {
           }
         }
       }
+      return
     },
   },
 
@@ -408,7 +411,7 @@ export const Game = {
     },
 
     minMoves: 1,
-    maxMoves: 1,
+    maxMoves: 0,
   },
 
   minPlayers: 2,
