@@ -35,7 +35,7 @@ function felderMalen(state) {
   }
 }
 
-function gebäudeMarkieren(gebäude, moves) {
+function gebäudeMarkieren(gebäude, moves, state) {
   //durchsichtiger machen
   console.log("blubb")
   let x = gebäude.koordinaten[0]
@@ -52,6 +52,7 @@ function gebäudeMarkieren(gebäude, moves) {
           onClick(845, 300, 50, 50, () => {
             irot++
             moves.rotieren(irot, gebäude.id)
+            lagerMalen(state, moves)
           })
         }
       }
@@ -82,7 +83,7 @@ function lagerMalen(state, moves) {
     for (let zeile = 0; zeile < gebäude.form.length; zeile++) {
       for (let spalte = 0; spalte < gebäude.form[0].length; spalte++) {
         onClick(spalte * 50 + x, zeile * 50 + y, 50, 50, () => {
-          gebäudeMarkieren(gebäude, moves)
+          gebäudeMarkieren(gebäude, moves, state)
           gebäudeBauenPrüfen(state, moves, gebäude)
         })
       }
