@@ -382,6 +382,7 @@ export const Game = {
       for (let i = 0; i < spTracker.length; i++) {
         platzierung.push(spSortiert.indexOf(spTracker[i]))
       }
+
       console.log(platzierung)
       return { winner: platzierung[0], platzierung: platzierung }
     }
