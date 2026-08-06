@@ -382,9 +382,15 @@ export const Game = {
       for (let i = 0; i < spTracker.length; i++) {
         platzierung.push(spSortiert.indexOf(spTracker[i]))
       }
-
+      /*let platzierungNachPlatzierung = [null, null, null]
+      for (let i = 0; i < spTracker.length; i++) {
+        platzierungNachPlatzierung[platzierung[i]] = i
+      }*/
       console.log(platzierung)
-      return { winner: platzierung[0], platzierung: platzierung }
+      return {
+        winner: platzierung[0],
+        platzierung: platzierung,
+      }
     }
   },
 }
