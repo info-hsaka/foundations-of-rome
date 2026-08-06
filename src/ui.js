@@ -64,8 +64,8 @@ function lagerMalen(state, moves) {
     drawPicture(
       ctx,
       name,
-      x * 50,
-      y * 50,
+      x,
+      y,
       50 * gebäude.form[0].length,
       50 * gebäude.form.length,
     )
