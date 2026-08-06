@@ -75,10 +75,42 @@ canvas.addEventListener(
   false,
 )
 
-export function drawPicture(ctx, path, ...args) {
-  const img = new Image()
-  img.onload = function () {
-    ctx.drawImage(img, ...args)
+
+const loadedMap = Map()
+
+export function drawPicture(ctx, path, x, y, dx, dy, angle) {
+  if (!loadedMap.has(path)) {
+
+    const img = new Image()
+    const promise = new Promise((resolve) => {
+      img.onload = function () {
+        resolve(img)
+      }
+
+      img.src = "/img/" + path
+    })
+
+    loadedMap.set(path, promise)
   }
-  img.src = "/img/" + path
+
+  loadedMap.get(path)
+    .then(img => {
+      ctx.save()
+      ctx.translate(x, y)
+
+      const leftCornerX = angle < 1 ? 0 :
+        angle < 91 ? - dy :
+          angle < 181 ? - dx :
+            angle < 271 ? 0 : 0
+
+      const leftCornerY = angle < 1 ? 0 :
+        angle < 91 ? 0 :
+          angle < 181 ? - dy :
+            angle < 271 ? - dx : 0
+
+      ctx.roate((angle ?? 0) * Math.PI / 180)
+      ctx.drawImage(img, leftCornerX, leftCornerY, dx, dy)
+      ctx.restore()
+    })
+
 }
