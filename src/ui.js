@@ -45,13 +45,13 @@ function gebäudeMarkieren(gebäude, moves) {
       if (gebäude.form[zeile][spalte] == 1) {
         ctx.fillStyle = "rgba(255, 255, 255, 0.5)"
         ctx.fillRect(spalte * 50 + x, zeile * 50 + y, 50, 50)
-        if (gebäude.rotation.length > 0) {
+        if (gebäude.rotation) {
           ctx.fillStyle = "black"
           ctx.fillRect(845, 300, 50, 50)
           let irot = 0
           onClick(845, 300, 50, 50, () => {
             irot++
-            moves.rotieren(irot, gebäude)
+            moves.rotieren(irot, gebäude.id)
           })
         }
       }

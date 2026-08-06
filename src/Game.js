@@ -352,7 +352,7 @@ export const Game = {
       move.events.endTurn()
     },
 
-    rotieren: function rotieren(irot, gebäude) {
+    rotieren: function rotieren(irot, gebäudeid) {
       gebäude.form = gebäude.rotation[irot % gebäude.rotation.length]
     },
   },
