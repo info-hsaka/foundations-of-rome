@@ -92,6 +92,7 @@ export const Game = {
             wert: 1,
             id: 4,
             sp: 2,
+            numrot: 0,
             grafik: [],
           },
           {
@@ -103,6 +104,7 @@ export const Game = {
             wert: 1,
             id: 5,
             sp: 2,
+            numrot: 0,
             grafik: [],
           },
           {
@@ -113,6 +115,7 @@ export const Game = {
             gebaut: false,
             wert: 2,
             id: 6,
+            numrot: 0,
             grafik: [],
           },
           {
@@ -123,6 +126,7 @@ export const Game = {
             gebaut: false,
             wert: 2,
             id: 7,
+            numrot: 0,
             grafik: [],
           },
           //L-Gebäude
@@ -154,6 +158,7 @@ export const Game = {
             gebaut: false,
             wert: 2,
             id: 8,
+            numrot: 0,
             sp: 3,
             grafik: [],
           },
@@ -185,6 +190,7 @@ export const Game = {
             gebaut: false,
             wert: 4,
             id: 9,
+            numrot: 0,
             grafik: [],
           },
           //3x1 Gebäude
@@ -196,6 +202,7 @@ export const Game = {
             gebaut: false,
             wert: 2,
             id: 10,
+            numrot: 0,
             sp: 3,
             grafik: [],
           },
@@ -207,6 +214,7 @@ export const Game = {
             gebaut: false,
             wert: 4,
             id: 11,
+            numrot: 0,
             grafik: [],
           },
           //2x2 Gebäude
@@ -220,6 +228,7 @@ export const Game = {
             gebaut: false,
             wert: 6,
             id: 12,
+            numrot: 0,
             grafik: [],
           },
           {
@@ -232,6 +241,7 @@ export const Game = {
             gebaut: false,
             wert: 3,
             id: 13,
+            numrot: 0,
             sp: 5,
             grafik: [],
           },
@@ -244,6 +254,7 @@ export const Game = {
             gebaut: false,
             wert: 6,
             id: 14,
+            numrot: 0,
             grafik: [],
           },
           {
@@ -255,6 +266,7 @@ export const Game = {
             wert: 3,
             id: 15,
             sp: 5,
+            numrot: 0,
             grafik: [],
           },
         ],
@@ -356,7 +368,7 @@ export const Game = {
       for (const gebäude of move.G.spieler[move.playerID].gebäude) {
         if (gebäudeid == gebäude.id) {
           gebäude.form = gebäude.rotation[irot % gebäude.rotation.length]
-          console.log("drehen")
+          gebäude.numrot++
         }
       }
     },

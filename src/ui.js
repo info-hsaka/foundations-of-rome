@@ -77,6 +77,7 @@ function lagerMalen(state, moves) {
       y,
       50 * gebäude.form[0].length,
       50 * gebäude.form.length,
+      90 * gebäude.numrot,
     )
     for (let zeile = 0; zeile < gebäude.form.length; zeile++) {
       for (let spalte = 0; spalte < gebäude.form[0].length; spalte++) {
