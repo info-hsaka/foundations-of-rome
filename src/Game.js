@@ -240,8 +240,8 @@ export const Game = {
     /** @type {Move} */
     geldNehmen: function geldNehmen(move) {
       let extraGeld = 0
-      for (const gebäude of move.G.spieler[move.playerID].gebäude) {
-        if (gebäude.funktion == "geld" && gebäude.gebaut == true) {
+      for (const gebäude of move.G.spieler[move.playerID].gebauteGebäude) {
+        if (gebäude.funktion == "geld") {
           extraGeld += gebäude.wert
         }
       }
