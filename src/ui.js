@@ -38,14 +38,18 @@ function felderMalen(state) {
 function gebäudeMarkieren(gebäude) {
   //durchsichtiger machen
   console.log("blubb")
-  ctx.fillStyle = "rgba(255, 255, 255, 0.5)"
   let x = gebäude.koordinaten[0]
   let y = gebäude.koordinaten[1]
   for (let zeile = 0; zeile < gebäude.form.length; zeile++) {
     for (let spalte = 0; spalte < gebäude.form[0].length; spalte++) {
       if (gebäude.form[zeile][spalte] == 1) {
+        ctx.fillStyle = "rgba(255, 255, 255, 0.5)"
         ctx.fillRect(spalte * 50 + x, zeile * 50 + y, 50, 50)
-        ctx.fillRect(737)
+        ctx.fillStyle = "black"
+        ctx.fillRect(845, 300, 50, 50)
+				onClick(845, 300, 50, 50 () =>{
+
+				})
       }
     }
   }
