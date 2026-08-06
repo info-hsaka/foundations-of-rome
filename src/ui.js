@@ -52,7 +52,6 @@ function gebäudeMarkieren(gebäude, moves, state) {
           onClick(845, 300, 50, 50, () => {
             irot++
             moves.rotieren(irot, gebäude.id)
-            lagerMalen(state, moves)
           })
         }
       }
