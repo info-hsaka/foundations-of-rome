@@ -76,7 +76,7 @@ canvas.addEventListener(
 )
 
 
-const loadedMap = Map()
+const loadedMap = new Map()
 
 export function drawPicture(ctx, path, x, y, dx, dy, angle) {
   if (!loadedMap.has(path)) {
@@ -99,16 +99,16 @@ export function drawPicture(ctx, path, x, y, dx, dy, angle) {
       ctx.translate(x, y)
 
       const leftCornerX = angle < 1 ? 0 :
-        angle < 91 ? - dy :
+        angle < 91 ? 0 :
           angle < 181 ? - dx :
-            angle < 271 ? 0 : 0
+            angle < 271 ? -dx : 0
 
       const leftCornerY = angle < 1 ? 0 :
-        angle < 91 ? 0 :
+        angle < 91 ? -dy :
           angle < 181 ? - dy :
-            angle < 271 ? - dx : 0
+            angle < 271 ? 0 : 0
 
-      ctx.roate((angle ?? 0) * Math.PI / 180)
+      ctx.rotate((angle ?? 0) * Math.PI / 180)
       ctx.drawImage(img, leftCornerX, leftCornerY, dx, dy)
       ctx.restore()
     })
